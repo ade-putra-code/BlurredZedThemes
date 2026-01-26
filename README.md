@@ -39,23 +39,13 @@ Both themes:
 
 ## Preview
 
-### Rosé Pine Dawn (Hybrid)
-
-<img
-  width="2383"
-  height="1272"
-  alt="Rosé Pine Dawn Hybrid preview"
-  src="https://github.com/user-attachments/assets/fa755cf3-ca31-48d8-b272-fc8207068569"
-/>
-
 ### Evergarden Winter Green (Hybrid)
 
-<img
-  width="2390"
-  height="1281"
-  alt="Evergarden Winter Green Hybrid preview"
-  src="https://github.com/user-attachments/assets/a882623e-d3a1-4f6a-acc8-52439f75d565"
-/>
+<img width="1941" height="1099" alt="2026-01-26_19-59-10" src="https://github.com/user-attachments/assets/a551c81f-73b1-4aec-a0f8-476ff8aefbac" />
+
+### Rosé Pine Dawn (Hybrid)
+
+<img width="1878" height="1090" alt="2026-01-26_20-01-30" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />
 
 ## Notes
 
