@@ -1,12 +1,7 @@
 # Blurred Zed Themes
 
 A small collection of **blurred hybrid themes for the Zed editor**, inspired by  
-**Evergarden (Neovim)** and **Rosé Pine**, with a focus on:
-
-- consistent blur usage across the UI
-- readable and expressive syntax highlighting
-- subtle, modern contrast
-- cohesive light & dark setups
+**Evergarden (Neovim)** and **Rosé Pine**, with a focus on my view of Modern UI.
 
 These themes are created by **overriding and extending official Zed themes**, then
 carefully tuning colors, surfaces, and syntax to match my personal workflow and taste.
