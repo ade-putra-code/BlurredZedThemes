@@ -42,8 +42,6 @@ Both themes:
 3. Restart Zed (or reload themes).
 4. Select the theme in **Settings → Theme**.
 
----
-
 ## Preview
 
 ### Rosé Pine Dawn (Hybrid)
@@ -72,12 +70,11 @@ Both themes:
 
 ## Credits & Inspiration
 
-- **Evergarden (Everviolet)** — Neovim theme by *comfysage*
-- **Rosé Pine** — official Zed theme
-- **Zed Editor** — theming system and blur support
-- **Catppuccin** — used as a reference for Zed’s theme structure and completeness, particularly for understanding how to properly cover all UI and syntax keys.
+- [**Evergarden (Everviolet)**](https://github.com/everviolet/nvim) — Neovim theme by *comfysage*
+- [**Rosé Pine**](https://github.com/rose-pine/zed) — official Zed theme
+- [**Zed Editor**](https://zed.dev) — theming system and blur support
+- [**Catppuccin**](https://github.com/catppuccin/zed) — used as a reference for Zed’s theme structure and completeness, particularly for understanding how to properly cover all UI and syntax keys.
 
 ---
 
 Feel free to open issues or discussions if you have suggestions or improvements.
-```
