@@ -84,7 +84,7 @@ Preview:
 An atmospheric, low-distraction theme with heavier blur usage and muted syntax emphasis.
 
 Source / inspiration:
-- darkearth.nvim: https://github.com/ptdewey/darkearth-nvim
+- miasma.nvim: https://github.com/xero/miasma.nvim
 
 Preview:
 <img width="1510" height="894" alt="2026-01-27_20-03-52" src="https://github.com/user-attachments/assets/c0308e82-e801-418b-9f1b-c2f2692031d0" />
