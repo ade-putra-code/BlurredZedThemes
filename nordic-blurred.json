@@ -21,20 +21,24 @@
         "background.appearance": "blurred",
         "border": "#00000000",
 
-        "tab.active_foreground": "#F8F9E8",
-        "tab.inactive_foreground": "#A5C2B8",
+        "tab.active_foreground": "#E5E9F0",
+        "tab.inactive_foreground": "#9AA7BE",
         "tab_bar.background": "#00000000",
         "tab.inactive_background": "#00000000",
         "tab.active_background": "#00000000",
+
+        "editor.line_number": "#6B778D",
+        "editor.active_line_number": "#D8DEE9",
 
         "icon.accent": "#81A1C1",
         "icon.muted": "#4C566A",
 
         "element.hover": "#3B4252CC",
 
-        "surface.background": "#191E21E0",
-        "elevated_surface.background": "#191E21F5",
-        "panel.overlay_background": "#191E21F5",
+        "surface.background": "#1E222AD6",
+        "elevated_surface.background": "#191D24F5",
+        "panel.overlay_background": "#191D24F5",
+        "background": "#242933E0",
 
         "scrollbar.track.background": "#191D241A",
         "scrollbar.track.border": "#D8DEE912",
@@ -43,22 +47,17 @@
         "editor.gutter.background": "#242933",
 
         "editor.subheader.background": "#191D24D0",
-        "editor.active_line.background": "#191D2480",
+        "editor.active_line.background": "#1A1E2580",
         "editor.highlighted_line.background": "#81A1C112",
-
-        "editor.line_number": "#3B425266",
-        "editor.active_line_number": "#60728A",
 
         "panel.background": "#00000000",
         "toolbar.background": "#00000000",
 
-        "background": "#242933E0",
-
-        "border.variant": "#3B4252",
-        "border.focused": "#81A1C166",
-        "border.selected": "#88C0D066",
+        "border.variant": "#5E81AC96",
+        "border.focused": "#88C0D066",
+        "border.selected": "#8FBCBB55",
+        "border.disabled": "#4C566A55",
         "border.transparent": "#00000000",
-        "border.disabled": "#4C566A66",
 
         "drop_target.background": "#191D2480",
 
@@ -74,8 +73,8 @@
         "element.selected": "#3B425280",
 
         "text": "#BBC3D4",
-        "text.muted": "#4C566A",
-        "text.placeholder": "#4C566A",
+        "text.muted": "#A7B2C6",
+        "text.placeholder": "#97A4BC",
         "text.disabled": "#4C566A",
         "text.accent": "#81A1C1",
 
