@@ -115,6 +115,7 @@ Preview:
 - Nordic.nvim (Neovim): https://github.com/AlexvZyl/nordic.nvim
 - LunarVim Colorschemes: https://github.com/LunarVim/Colorschemes
 - darkearth.nvim (Neovim): https://github.com/ptdewey/darkearth-nvim
+- miasma.nvim (Neovim): https://github.com/xero/miasma.nvim
 - Cosmos (Zed): https://github.com/nauvalazhar/cosmos
 - Catppuccin (Zed): https://github.com/catppuccin/zed
 - Zed Editor: https://zed.dev
