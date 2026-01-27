@@ -9,7 +9,7 @@ These themes are created by overriding and extending existing Zed themes, then c
 <details>
 <summary><strong>Evergarden Winter Green (Hybrid)</strong></summary>
 
-Based on Evergarden / Everviolet (Neovim). Focused on calm contrast, soft surfaces, and gentle semantic syntax.
+Based on Evergarden / Everviolet (Neovim).
 
 Source / inspiration:
 - Evergarden (Everviolet): https://github.com/everviolet/nvim
@@ -33,7 +33,7 @@ Preview:
 <details>
 <summary><strong>Nordic (Hybrid)</strong></summary>
 
-A cool, desaturated theme with clean separation between UI surfaces and editor content.
+A cool, desaturated theme with clean separation between UI surfaces and editor content. Based on nvim theme.
 
 Source / inspiration:
 - Nordic.nvim (Neovim): https://github.com/AlexvZyl/nordic.nvim
@@ -45,7 +45,7 @@ Preview:
 <details>
 <summary><strong>Lunar (Hybrid)</strong></summary>
 
-A Zed reinterpretation of LunarVim’s colorscheme: strong semantic roles, readable LSP/diagnostics, and blurred/borderless Zed UI.
+A Zed reinterpretation of LunarVim’s colorscheme and blurred/borderless Zed UI.
 
 Source / inspiration:
 - LunarVim Colorschemes: https://github.com/LunarVim/Colorschemes
