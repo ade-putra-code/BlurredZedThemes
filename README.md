@@ -14,6 +14,9 @@ carefully tuning colors, surfaces, and syntax to match my personal workflow and 
 - **Rosé Pine Dawn (Hybrid)**  
   Light, warm, minimal theme inspired by Rosé Pine Dawn, with consistent blurred UI.
 
+- **Cosmos (Hybrid)**
+  Dark, high-contrast “space / neon” theme based on the deprecated Cosmos palette.
+
 Both themes:
 - use blurred panels, toolbars, tab bars, and bars consistently
 - keep the editor background readable and stable
