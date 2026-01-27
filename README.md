@@ -47,6 +47,10 @@ Both themes:
 
 <img width="1878" height="1090" alt="2026-01-26_20-01-30" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />
 
+### Cosmos (Hybrid)
+
+<img width="1512" height="887" alt="image" src="https://github.com/user-attachments/assets/195383d5-5f5d-449d-af62-d9a1d0f79ef3" />
+
 ## Notes
 
 - These themes rely on Zed’s **`background.appearance = "blurred"`** setting.
@@ -58,6 +62,7 @@ Both themes:
 - [**Evergarden (Everviolet)**](https://github.com/everviolet/nvim) — Neovim theme by *comfysage*
 - [**Rosé Pine**](https://github.com/rose-pine/zed) — official Zed theme
 - [**Zed Editor**](https://zed.dev) — theming system and blur support
+- [**Cosmos**](https://github.com/nauvalazhar/cosmos) - one of the first zed themes
 - [**Catppuccin**](https://github.com/catppuccin/zed) — used as a reference for Zed’s theme structure and completeness, particularly for understanding how to properly cover all UI and syntax keys.
 
 ---
