@@ -17,8 +17,7 @@
       "scrollbar_track": "00",
       "tab_active": "00"
     },
-    "light": {
-    }
+    "light": {}
   },
   "colors": null,
   "meta": {
@@ -48,7 +47,7 @@
     "pine": "#B3E3CA",
     "rose": "#F5D098",
     "subtle": "#96B4AA",
-    "surface": "#000000",
+    "surface": "#1E2528",
     "text": "#F8F9E8"
   },
   "semantic": {
