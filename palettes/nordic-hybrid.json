@@ -15,8 +15,7 @@
       "element_hover": "CC",
       "ghost_active": "33"
     },
-    "light": {
-    }
+    "light": {}
   },
   "colors": null,
   "meta": {
@@ -113,6 +112,9 @@
       },
       "property": {
         "color": "#8FBCBB"
+      },
+      "namespace": {
+        "color": "#D8DEE9"
       },
       "punctuation": {
         "color": "#60728A"

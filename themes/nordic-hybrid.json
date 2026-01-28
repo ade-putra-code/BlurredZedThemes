@@ -111,6 +111,9 @@
             "color": "#88C0D0",
             "font_style": "italic"
           },
+          "namespace": {
+            "color": "#D8DEE9"
+          },
           "number": {
             "color": "#BE9DB8"
           },
