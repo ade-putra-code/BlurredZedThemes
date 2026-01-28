@@ -33,17 +33,22 @@
           {
             "background": "#A7C080",
             "cursor": "#A7C080",
-            "selection": "#3C484166"
-          },
-          {
-            "background": "#D699B6",
-            "cursor": "#D699B6",
-            "selection": "#D699B64D"
+            "selection": "#A7C0804D"
           },
           {
             "background": "#83C092",
             "cursor": "#83C092",
             "selection": "#83C0924D"
+          },
+          {
+            "background": "#7FBBB3",
+            "cursor": "#7FBBB3",
+            "selection": "#7FBBB34D"
+          },
+          {
+            "background": "#7FBBB3",
+            "cursor": "#7FBBB3",
+            "selection": "#7FBBB34D"
           },
           {
             "background": "#DBBC7F",
@@ -61,14 +66,9 @@
             "selection": "#E67E804D"
           },
           {
-            "background": "#7FBBB3",
-            "cursor": "#7FBBB3",
-            "selection": "#7FBBB34D"
-          },
-          {
-            "background": "#9DA9A0",
-            "cursor": "#9DA9A0",
-            "selection": "#9DA9A04D"
+            "background": "#D699B6",
+            "cursor": "#D699B6",
+            "selection": "#D699B64D"
           }
         ],
         "predictive": "#859289",
@@ -429,11 +429,11 @@
 
         "background.appearance": "blurred",
 
-        "border.disabled": "#7A847866",
-        "border.focused": "#83C09266",
-        "border.selected": "#A7C08066",
+        "border.disabled": "#9DA9A066",
+        "border.focused": "#A7C08066",
+        "border.selected": "#7FBBB366",
         "border.transparent": "#00000000",
-        "border.variant": "#7FBBB3",
+        "border.variant": "#A7C08099",
 
         "conflict.background": "#E6987526",
         "conflict.border": "#E69875",
@@ -446,29 +446,29 @@
         "deleted.background": "#E67E8026",
         "deleted.border": "#E67E80",
 
-        "drop_target.background": "#7FBBB34D",
+        "drop_target.background": "#D3C6AA80",
 
         "editor.active_line.background": "#37414540",
         "editor.active_line_number": "#A7C080",
-        "editor.active_wrap_guide": "#4F5B58",
+        "editor.active_wrap_guide": "#9DA9A066",
         "editor.background": "#272E33",
-        "editor.debugger_active_line.background": "#E6987512",
-        "editor.document_highlight.bracket_background": "#D699B617",
-        "editor.document_highlight.read_background": "#37414529",
-        "editor.document_highlight.write_background": "#37414529",
+        "editor.debugger_active_line.background": "#DBBC7F1A",
+        "editor.document_highlight.bracket_background": "#7FBBB317",
+        "editor.document_highlight.read_background": "#A7C08029",
+        "editor.document_highlight.write_background": "#9DA9A029",
         "editor.foreground": "#D3C6AA",
         "editor.gutter.background": "#272E33",
-        "editor.highlighted_line.background": "#D3C6AA12",
-        "editor.indent_guide": "#37414599",
-        "editor.indent_guide_active": "#4F5B58",
-        "editor.invisible": "#7A847866",
-        "editor.line_number": "#7A847866",
-        "editor.subheader.background": "#1E2326D0",
-        "editor.wrap_guide": "#4F5B58",
+        "editor.highlighted_line.background": "#37414512",
+        "editor.indent_guide": "#9DA9A099",
+        "editor.indent_guide_active": "#859289FF",
+        "editor.invisible": "#9DA9A0",
+        "editor.line_number": "#9DA9A0",
+        "editor.subheader.background": "#272E33D0",
+        "editor.wrap_guide": "#9DA9A066",
 
         "element.active": "#3C484166",
-        "element.background": "#1E23261F",
-        "element.disabled": "#7A8478",
+        "element.background": "#272E33",
+        "element.disabled": "#272E3340",
         "element.hover": "#374145CC",
         "element.selected": "#3C484180",
 
@@ -478,21 +478,21 @@
         "error.border": "#E67E80",
 
         "ghost_element.active": "#A7C08040",
-        "ghost_element.background": "#1E232626",
-        "ghost_element.disabled": "#7A847840",
+        "ghost_element.background": "#272E33",
+        "ghost_element.disabled": "#272E3340",
         "ghost_element.hover": "#37414566",
         "ghost_element.selected": "#A7C08066",
 
-        "hidden.background": "#1E2326",
+        "hidden.background": "#272E33",
         "hidden.border": "#7A8478",
 
-        "hint.background": "#1E2326",
+        "hint.background": "#272E33",
         "hint.border": "#859289",
 
         "icon.accent": "#A7C080",
-        "icon.disabled": "#7A8478",
-        "icon.muted": "#859289",
-        "icon.placeholder": "#859289",
+        "icon.disabled": "#859289",
+        "icon.muted": "#9DA9A0",
+        "icon.placeholder": "#9DA9A0",
 
         "ignored.background": "#7A847826",
         "ignored.border": "#7A8478",
@@ -500,7 +500,7 @@
         "info.background": "#7FBBB31F",
         "info.border": "#7FBBB3",
 
-        "link_text.hover": "#7FBBB3",
+        "link_text.hover": "#A7C080",
 
         "minimap.thumb.active_background": "#A7C08099",
         "minimap.thumb.background": "#A7C08033",
@@ -510,34 +510,35 @@
         "modified.background": "#DBBC7F26",
         "modified.border": "#DBBC7F",
 
-        "pane.focused_border": "#37414530",
+        "pane.focused_border": "#9DA9A030",
 
-        "pane_group.border": "#37414520",
+        "pane_group.border": "#9DA9A020",
 
         "panel.background": "#00000000",
-        "panel.focused_border": "#37414530",
-        "panel.indent_guide": "#37414599",
-        "panel.indent_guide_active": "#4F5B58",
+        "panel.focused_border": "#9DA9A030",
+        "panel.indent_guide": "#9DA9A099",
+        "panel.indent_guide_active": "#859289FF",
         "panel.indent_guide_hover": "#A7C080",
         "panel.overlay_background": "#272E33F2",
 
-        "predictive.background": "#1E2326",
-        "predictive.border": "#83C092",
+        "predictive.background": "#272E33",
+        "predictive.border": "#859289",
 
         "renamed.background": "#7FBBB326",
         "renamed.border": "#7FBBB3",
 
         "scrollbar.thumb.active_background": null,
-        "scrollbar.thumb.background": "#4F5B5880",
+        "scrollbar.thumb.background": "#9DA9A080",
         "scrollbar.thumb.border": null,
-        "scrollbar.thumb.hover_background": "#7A8478",
-        "scrollbar.track.background": "#1E23261A",
+        "scrollbar.thumb.hover_background": "#9DA9A0FF",
+        "scrollbar.track.background": "#272E331A",
         "scrollbar.track.border": "#D3C6AA12",
 
-        "search.active_match_background": "#E6987566",
-        "search.match_background": "#7FBBB34D",
+        "search.active_match_background": "#DBBC7F66",
+        "search.match_background": "#A7C0804D",
 
         "status_bar.background": "#272E33E0",
+        "status_bar.foreground": "#D3C6AA",
 
         "success.background": "#A7C0801F",
         "success.border": "#A7C080",
@@ -547,7 +548,7 @@
         "tab.active_background": "#272E33EE",
         "tab.active_foreground": "#D3C6AA",
         "tab.inactive_background": "#00000000",
-        "tab.inactive_foreground": "#859289",
+        "tab.inactive_foreground": "#9DA9A0",
 
         "tab_bar.background": "#00000000",
 
@@ -563,6 +564,14 @@
         "terminal.ansi.bright_white": "#D3C6AA",
         "terminal.ansi.bright_yellow": "#DBBC7F",
         "terminal.ansi.cyan": "#83C092",
+        "terminal.ansi.dim_black": "#1E2326",
+        "terminal.ansi.dim_blue": "#7FBBB3",
+        "terminal.ansi.dim_cyan": "#83C092",
+        "terminal.ansi.dim_green": "#A7C080",
+        "terminal.ansi.dim_magenta": "#D699B6",
+        "terminal.ansi.dim_red": "#E67E80",
+        "terminal.ansi.dim_white": "#D3C6AA",
+        "terminal.ansi.dim_yellow": "#DBBC7F",
         "terminal.ansi.green": "#A7C080",
         "terminal.ansi.magenta": "#D699B6",
         "terminal.ansi.red": "#E67E80",
@@ -574,12 +583,13 @@
         "terminal.foreground": "#D3C6AA",
 
         "text.accent": "#A7C080",
-        "text.disabled": "#7A8478",
+        "text.disabled": "#859289",
         "text.muted": "#9DA9A0",
-        "text.placeholder": "#859289",
+        "text.placeholder": "#9DA9A0",
 
         "title_bar.background": "#272E33E0",
-        "title_bar.inactive_background": "#1E2326CC",
+        "title_bar.foreground": "#D3C6AA",
+        "title_bar.inactive_background": "#272E33CC",
 
         "toolbar.background": "#00000000",
 
@@ -587,31 +597,31 @@
         "unreachable.border": "#E67E80",
 
         "version_control.added": "#A7C080",
-        "version_control.conflict": "#E69875",
-        "version_control.conflict_marker.ours": "#A7C08033",
-        "version_control.conflict_marker.theirs": "#7FBBB333",
+        "version_control.conflict": "#DBBC7F",
+        "version_control.conflict_marker.ours": "#DBBC7F33",
+        "version_control.conflict_marker.theirs": "#A7C08033",
         "version_control.deleted": "#E67E80",
         "version_control.ignored": "#7A8478",
         "version_control.modified": "#DBBC7F",
         "version_control.renamed": "#7FBBB3",
 
-        "vim.helix_normal.background": "#83C092",
-        "vim.helix_normal.foreground": "#1E2326",
-        "vim.helix_select.background": "#DBBC7F",
-        "vim.helix_select.foreground": "#1E2326",
-        "vim.insert.background": "#A7C080",
-        "vim.insert.foreground": "#1E2326",
-        "vim.mode.text": "#1E2326",
-        "vim.normal.background": "#83C092",
-        "vim.normal.foreground": "#1E2326",
+        "vim.helix_normal.background": "#A7C080",
+        "vim.helix_normal.foreground": "#272E33",
+        "vim.helix_select.background": "#7FBBB3",
+        "vim.helix_select.foreground": "#272E33",
+        "vim.insert.background": "#DBBC7F",
+        "vim.insert.foreground": "#272E33",
+        "vim.mode.text": "#272E33",
+        "vim.normal.background": "#A7C080",
+        "vim.normal.foreground": "#272E33",
         "vim.replace.background": "#E67E80",
-        "vim.replace.foreground": "#1E2326",
-        "vim.visual.background": "#DBBC7F",
-        "vim.visual.foreground": "#1E2326",
-        "vim.visual_block.background": "#D699B6",
-        "vim.visual_block.foreground": "#1E2326",
-        "vim.visual_line.background": "#DBBC7F",
-        "vim.visual_line.foreground": "#1E2326",
+        "vim.replace.foreground": "#272E33",
+        "vim.visual.background": "#7FBBB3",
+        "vim.visual.foreground": "#272E33",
+        "vim.visual_block.background": "#7FBBB3",
+        "vim.visual_block.foreground": "#272E33",
+        "vim.visual_line.background": "#7FBBB3",
+        "vim.visual_line.foreground": "#272E33",
 
         "warning.background": "#DBBC7F1F",
         "warning.border": "#DBBC7F"

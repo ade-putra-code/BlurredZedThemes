@@ -1,0 +1,48 @@
+version: "3"
+
+tasks:
+  fmt:
+    desc: Format JSON files (pass paths/globs via CLI_ARGS).
+    cmds:
+      - go run scripts/format/main.go {{.CLI_ARGS}}
+
+  gen:
+    desc: Generate a single theme from a palette (PAL=palettes/<name>.json).
+    cmds:
+      - test -n "{{.PAL}}"
+      - go run scripts/generate/main.go --palette "{{.PAL}}"
+
+  gen-all:
+    desc: Generate all themes into generated/themes.
+    cmds:
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run scripts/generate/main.go --palette "$p"; fi; done
+      - go run scripts/format/main.go generated/themes/*.json
+
+  sync:
+    desc: Sync a palette against its reference theme (THEME=<name>).
+    cmds:
+      - test -n "{{.THEME}}"
+      - scripts/sync.sh "{{.THEME}}"
+
+  sync-all:
+    desc: Sync all palettes against their reference themes.
+    cmds:
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ] && [ -f "themes/$base.json" ]; then scripts/sync.sh "$base"; fi; done
+
+  extract:
+    desc: Extract a palette from a reference theme (THEME=<name>).
+    cmds:
+      - test -n "{{.THEME}}"
+      - go run scripts/palette/main.go --theme "themes/{{.THEME}}.json" --style-keys syntax,players --with-alpha
+
+  publish:
+    desc: Generate non-WIP themes into ./themes for publishing.
+    cmds:
+      - mkdir -p themes
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run scripts/generate/main.go --palette "$p" --wip=false --out "themes/${base}.json"; fi; done
+      - go run scripts/format/main.go themes/*.json
+
+  verify:
+    desc: Verify generated themes match reference themes.
+    cmds:
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ] && [ -f "themes/$base.json" ]; then go run scripts/generate/main.go --palette "$p" --compare "themes/$base.json"; fi; done

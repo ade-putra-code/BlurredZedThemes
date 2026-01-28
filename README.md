@@ -121,13 +121,26 @@ Preview:
 - Designed primarily for macOS, but should work on other platforms that support blur.
 - Syntax highlighting is customized beyond default Zed mappings.
 
-## Formatting themes
+## Taskfile workflow
 
-To keep theme JSON files consistent, run the formatter:
+All common workflows are wrapped in `Taskfile.yml`:
 
 ```bash
-go run scripts/format.go *.json
+task gen-all
+task sync THEME=evergarden-hybrid
+task sync-all
+task extract THEME=evergarden-hybrid
+task publish
+task verify
 ```
+
+Notes:
+
+- Palettes define roles/semantic/accents/terminal, with optional `style` for `syntax` and `players`.
+- `alpha` overrides can be added per theme when needed (merged over `palettes/alpha.json`).
+- `overrides` are treated as derived data and can be regenerated from a reference theme.
+- The generator fills missing fields with `TODO` placeholders and applies safe defaults.
+- Published/reference themes live in `themes/`.
 
 ## Credits
 
