@@ -1,2 +1,4 @@
 generated/themes/
 *.wip.json
+
+.DS_Store
