@@ -22,13 +22,13 @@
         "title_bar.background": "#fffaf3cc",
         "title_bar.inactive_background": "#fffaf3cc",
         "status_bar.background": "#fffaf3cc",
+        "element.hover": "#e9e1dacc",
 
         "background": "#fffaf3cc",
         "surface.background": "#fffaf3cc",
         "elevated_surface.background": "#fffaf3",
         "panel.overlay_background": "#fffaf3cc",
 
-        "element.hover": "#e9e1dacc",
         "ghost_element.hover": "#e9e1dacc",
         "ghost_element.active": "#cecacdcc",
         "element.active": "#d9d4df8c",
@@ -47,8 +47,11 @@
         "toolbar.background": "#00000000",
 
         "tab_bar.background": "#00000000",
-        "tab.inactive_background": "#00000000",
-        "tab.active_background": "#00000000",
+        "tab.active_background": "#fffaf3ee",
+        "tab.inactive_background": "#fffaf300",
+
+        "tab.active_foreground": "#3f3b5a",
+        "tab.inactive_foreground": "#8b87a3",
 
         "border": "#00000000",
         "border.variant": "#56949f88",
@@ -70,9 +73,6 @@
         "icon.disabled": "#8c8aa3",
         "icon.placeholder": "#8c8aa3",
         "icon.accent": "#56949f",
-
-        "tab.active_foreground": "#3f3b5a",
-        "tab.inactive_foreground": "#8b87a3",
 
         "panel.focused_border": "#907aa944",
         "panel.indent_guide": "#9893a588",
