@@ -413,7 +413,7 @@
     "terminal.ansi.red": "#F57F82",
     "terminal.ansi.white": "#ADC9BC",
     "terminal.ansi.yellow": "#DBE6AF",
-    "terminal.background": "#1E2528CC",
+    "terminal.background": "#1E2528",
     "terminal.bright_foreground": "#F8F9E8",
     "terminal.dim_foreground": "#ADC9BC",
     "terminal.foreground": "#F8F9E8"

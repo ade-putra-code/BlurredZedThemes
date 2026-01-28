@@ -425,7 +425,7 @@
 
         "tab_bar.background": "#00000000",
 
-        "terminal.ansi.background": "#222222",
+        "terminal.ansi.background": "#222222FF",
         "terminal.ansi.black": "#1C1C1C",
         "terminal.ansi.blue": "#78834B",
         "terminal.ansi.bright_black": "#666666",
@@ -450,7 +450,7 @@
         "terminal.ansi.red": "#B36D43",
         "terminal.ansi.white": "#D7C483",
         "terminal.ansi.yellow": "#C9A554",
-        "terminal.background": "#222222CC",
+        "terminal.background": "#222222FF",
         "terminal.bright_foreground": "#D7C483",
         "terminal.dim_foreground": "#D7C483B3",
         "terminal.foreground": "#D7C483",

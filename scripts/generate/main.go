@@ -182,6 +182,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	mergeStringMap(style, p.Terminal)
 	applyTerminalDims(style)
+	applyTerminalAlpha(style, p, alpha)
 
 	applyDerivedVim(style, p)
 	applyDerivedPlayers(style, p, alpha)
@@ -276,6 +277,25 @@ func removeTODOs(style map[string]any) {
 		if s, ok := v.(string); ok && s == "TODO" {
 			delete(style, k)
 		}
+	}
+}
+
+func applyTerminalAlpha(style map[string]any, p Palette, alpha AlphaConfig) {
+	appearance := p.Meta.Appearance
+	alphaKeys := map[string]string{
+		"terminal.background":      "terminal_background",
+		"terminal.ansi.background": "terminal_ansi_background",
+	}
+	for styleKey, alphaKey := range alphaKeys {
+		alphaHex := alphaFor(appearance, alpha, alphaKey)
+		if alphaHex == "" {
+			continue
+		}
+		value, ok := style[styleKey].(string)
+		if !ok || value == "" || value == "TODO" {
+			continue
+		}
+		style[styleKey] = withAlpha(value, alphaHex)
 	}
 }
 

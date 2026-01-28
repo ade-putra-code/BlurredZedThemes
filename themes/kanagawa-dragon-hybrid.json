@@ -506,7 +506,7 @@
 
         "tab_bar.background": "#00000000",
 
-        "terminal.ansi.background": "#181616",
+        "terminal.ansi.background": "#181616FF",
         "terminal.ansi.black": "#0D0C0C",
         "terminal.ansi.blue": "#8BA4B0",
         "terminal.ansi.bright_black": "#A6A69C",
@@ -531,7 +531,7 @@
         "terminal.ansi.red": "#C4746E",
         "terminal.ansi.white": "#C5C9C5",
         "terminal.ansi.yellow": "#C4B28A",
-        "terminal.background": "#181616",
+        "terminal.background": "#181616FF",
         "terminal.bright_foreground": "#C5C9C5",
         "terminal.dim_foreground": "#8EA4A2",
         "terminal.foreground": "#C5C9C5",

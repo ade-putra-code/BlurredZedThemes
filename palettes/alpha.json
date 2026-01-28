@@ -46,7 +46,9 @@
     "tab_active": "EE",
     "ui": "E0",
     "ui_inactive": "CC",
-    "wrap_guide": "44"
+    "wrap_guide": "44",
+    "terminal_background": "FF",
+    "terminal_ansi_background": "FF"
   },
   "light": {
     "active_line": "80",
@@ -95,6 +97,8 @@
     "tab_active": "EE",
     "ui": "C6",
     "ui_inactive": "C6",
-    "wrap_guide": "33"
+    "wrap_guide": "33",
+    "terminal_background": "FF",
+    "terminal_ansi_background": "FF"
   }
 }

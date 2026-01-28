@@ -16,8 +16,7 @@
       "active_line": "CC",
       "element_hover": "CC"
     },
-    "light": {
-    }
+    "light": {}
   },
   "colors": null,
   "meta": {
@@ -145,7 +144,6 @@
       "variable": {
         "color": "#D7C483"
       },
-
       "comment.doc": {
         "color": "#666666",
         "font_style": "italic"
@@ -154,14 +152,12 @@
         "color": "#666666",
         "font_style": "italic"
       },
-
       "constant.builtin": {
         "color": "#BB7744"
       },
       "constant.macro": {
         "color": "#C9A554"
       },
-
       "diff.delta": {
         "color": "#C9A554"
       },
@@ -171,12 +167,10 @@
       "diff.plus": {
         "color": "#5F875F"
       },
-
       "emphasis.strong": {
         "color": "#D7C483",
         "font_weight": 700
       },
-
       "function.builtin": {
         "color": "#BB7744"
       },
@@ -195,7 +189,6 @@
       "function.method.call": {
         "color": "#78834B"
       },
-
       "keyword.conditional": {
         "color": "#5F875F"
       },
@@ -205,11 +198,9 @@
       "keyword.return": {
         "color": "#5F875F"
       },
-
       "number.float": {
         "color": "#78824B"
       },
-
       "punctuation.bracket": {
         "color": "#D7C483"
       },
@@ -222,7 +213,6 @@
       "punctuation.special.symbol": {
         "color": "#C9A554"
       },
-
       "string.escape": {
         "color": "#BB7744"
       },
@@ -235,19 +225,16 @@
       "string.special.symbol": {
         "color": "#C9A554"
       },
-
       "tag.attribute": {
         "color": "#78834B"
       },
       "tag.delimiter": {
         "color": "#D7C483"
       },
-
       "text.literal": {
         "color": "#D7C483",
         "font_style": "italic"
       },
-
       "type.builtin": {
         "color": "#78834B",
         "font_weight": 700
@@ -256,7 +243,6 @@
         "color": "#78834B",
         "font_style": "italic"
       },
-
       "variable.builtin": {
         "color": "#B36D43"
       },
@@ -290,7 +276,7 @@
     "terminal.ansi.red": "#B36D43",
     "terminal.ansi.white": "#D7C483",
     "terminal.ansi.yellow": "#C9A554",
-    "terminal.background": "#222222CC",
+    "terminal.background": "#222222",
     "terminal.bright_foreground": "#D7C483",
     "terminal.dim_foreground": "#D7C483B3",
     "terminal.foreground": "#D7C483"

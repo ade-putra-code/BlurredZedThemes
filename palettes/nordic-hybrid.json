@@ -27,7 +27,6 @@
   },
   "overrides": {
     "conflict.border": "#BF616A",
-
     "debugger.accent": "#BF616A"
   },
   "roles": {
@@ -138,14 +137,12 @@
       "variable": {
         "color": "#BBC3D4"
       },
-
       "constant.builtin": {
         "color": "#BE9DB8"
       },
       "constant.macro": {
         "color": "#B48EAD"
       },
-
       "diff.delta": {
         "color": "#81A1C1"
       },
@@ -155,7 +152,6 @@
       "diff.plus": {
         "color": "#A3BE8C"
       },
-
       "function.builtin": {
         "color": "#88C0D0"
       },
@@ -168,7 +164,6 @@
       "function.method.call": {
         "color": "#88C0D0"
       },
-
       "keyword.directive": {
         "color": "#BF616A"
       },
@@ -190,7 +185,6 @@
       "keyword.type": {
         "color": "#D08770"
       },
-
       "string.escape": {
         "color": "#BE9DB8"
       },
@@ -203,7 +197,6 @@
       "string.special.symbol": {
         "color": "#EBCB8B"
       },
-
       "tag.attribute": {
         "color": "#8FBCBB"
       },
@@ -213,11 +206,9 @@
       "tag.doctype": {
         "color": "#BF616A"
       },
-
       "text.literal": {
         "color": "#A3BE8C"
       },
-
       "type.builtin": {
         "color": "#EBCB8B"
       },
@@ -228,7 +219,6 @@
         "color": "#EBCB8B",
         "font_style": "italic"
       },
-
       "variable.builtin": {
         "color": "#BF616A"
       },
@@ -270,7 +260,7 @@
     "terminal.ansi.red": "#BF616A",
     "terminal.ansi.white": "#BBC3D4",
     "terminal.ansi.yellow": "#EBCB8B",
-    "terminal.background": "#242933CC",
+    "terminal.background": "#242933",
     "terminal.bright_foreground": "#D8DEE9",
     "terminal.dim_foreground": "#BBC3D4",
     "terminal.foreground": "#BBC3D4"

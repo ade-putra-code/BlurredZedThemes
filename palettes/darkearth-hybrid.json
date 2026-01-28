@@ -17,8 +17,7 @@
       "element_hover": "CC",
       "search_match": "40"
     },
-    "light": {
-    }
+    "light": {}
   },
   "colors": null,
   "meta": {
@@ -150,7 +149,6 @@
       "variable": {
         "color": "#D7C484"
       },
-
       "comment.doc": {
         "color": "#6E665E",
         "font_style": "italic"
@@ -159,14 +157,12 @@
         "color": "#6E665E",
         "font_style": "italic"
       },
-
       "constant.builtin": {
         "color": "#BB7844"
       },
       "constant.macro": {
         "color": "#BB7844"
       },
-
       "diff.delta": {
         "color": "#675642"
       },
@@ -176,12 +172,10 @@
       "diff.plus": {
         "color": "#5F865F"
       },
-
       "emphasis.strong": {
         "color": "#D7C484",
         "font_weight": 700
       },
-
       "function.builtin": {
         "color": "#77824A"
       },
@@ -200,7 +194,6 @@
       "function.method.call": {
         "color": "#77824A"
       },
-
       "keyword.conditional": {
         "color": "#5F865F"
       },
@@ -210,11 +203,9 @@
       "keyword.return": {
         "color": "#5F865F"
       },
-
       "number.float": {
         "color": "#B3664D"
       },
-
       "punctuation.bracket": {
         "color": "#80744D"
       },
@@ -227,7 +218,6 @@
       "punctuation.special.symbol": {
         "color": "#BB7844"
       },
-
       "string.escape": {
         "color": "#BB7844"
       },
@@ -240,18 +230,15 @@
       "string.special.symbol": {
         "color": "#C9A654"
       },
-
       "tag.attribute": {
         "color": "#77824A"
       },
       "tag.delimiter": {
         "color": "#80744D"
       },
-
       "text.literal": {
         "color": "#6E665E"
       },
-
       "type.builtin": {
         "color": "#C9A654",
         "font_weight": 700
@@ -260,7 +247,6 @@
         "color": "#C9A654",
         "font_style": "italic"
       },
-
       "variable.builtin": {
         "color": "#B36B42"
       },
@@ -294,7 +280,7 @@
     "terminal.ansi.red": "#B36B42",
     "terminal.ansi.white": "#D7C484",
     "terminal.ansi.yellow": "#C9A654",
-    "terminal.background": "#24211ECC",
+    "terminal.background": "#24211E",
     "terminal.bright_foreground": "#D7C484",
     "terminal.dim_foreground": "#D7C484B3",
     "terminal.foreground": "#D7C484"
