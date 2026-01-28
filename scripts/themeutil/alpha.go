@@ -36,7 +36,7 @@ func AlphaFor(appearance string, cfg AlphaConfig, key string) string {
 			return v
 		}
 	}
-	return "EE"
+	return ""
 }
 
 func WithAlpha(hex string, alpha string) string {

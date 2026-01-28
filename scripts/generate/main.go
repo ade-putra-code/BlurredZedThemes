@@ -182,7 +182,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	mergeStringMap(style, p.Terminal)
 	applyTerminalDims(style)
-	applyTerminalAlpha(style, p, alpha)
+	applyAlphaSpecs(style, p, alpha)
 
 	applyDerivedVim(style, p)
 	applyDerivedPlayers(style, p, alpha)
@@ -228,11 +228,25 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 }
 
 func alphaFor(appearance string, cfg AlphaConfig, key string) string {
-	return themeutil.AlphaFor(appearance, cfg, key)
+	if v, ok := alphaValue(appearance, cfg, key); ok {
+		return v
+	}
+	return ""
 }
 
 func withAlpha(hex string, alpha string) string {
 	return themeutil.WithAlpha(hex, alpha)
+}
+
+func stripAlpha(hex string) string {
+	h := strings.TrimPrefix(hex, "#")
+	if len(h) == 8 {
+		return "#" + h[:6]
+	}
+	if strings.HasPrefix(hex, "#") {
+		return strings.ToUpper(hex)
+	}
+	return hex
 }
 
 func setDefault(style map[string]any, key, value string) {
@@ -280,22 +294,36 @@ func removeTODOs(style map[string]any) {
 	}
 }
 
-func applyTerminalAlpha(style map[string]any, p Palette, alpha AlphaConfig) {
-	appearance := p.Meta.Appearance
-	alphaKeys := map[string]string{
-		"terminal.background":      "terminal_background",
-		"terminal.ansi.background": "terminal_ansi_background",
+func alphaValue(appearance string, cfg AlphaConfig, key string) (string, bool) {
+	if strings.EqualFold(appearance, "light") {
+		if v := cfg.Light[key]; v != "" {
+			return v, true
+		}
+		return "", false
 	}
-	for styleKey, alphaKey := range alphaKeys {
-		alphaHex := alphaFor(appearance, alpha, alphaKey)
-		if alphaHex == "" {
+	if v := cfg.Dark[key]; v != "" {
+		return v, true
+	}
+	return "", false
+}
+
+func applyAlphaSpecs(style map[string]any, p Palette, alpha AlphaConfig) {
+	appearance := p.Meta.Appearance
+	for _, spec := range alphaSpecs() {
+		alphaHex, ok := alphaValue(appearance, alpha, spec.alphaKey)
+		if !ok {
 			continue
 		}
-		value, ok := style[styleKey].(string)
-		if !ok || value == "" || value == "TODO" {
+		base := spec.base(p)
+		if base == "" {
 			continue
 		}
-		style[styleKey] = withAlpha(value, alphaHex)
+		if current, ok := style[spec.styleKey].(string); ok && current != "" && current != "TODO" {
+			if !spec.force && !strings.EqualFold(current, base) {
+				continue
+			}
+		}
+		style[spec.styleKey] = withAlpha(base, alphaHex)
 	}
 }
 
@@ -432,33 +460,32 @@ func applyRoleMappings(style map[string]any, p Palette, alpha AlphaConfig) {
 		return
 	}
 
-	appearance := p.Meta.Appearance
 	role := func(name string) string { return p.Roles[name] }
 
-	setRole(style, "background", withAlpha(role("surface"), alphaFor(appearance, alpha, "ui")))
-	setRole(style, "surface.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "surface")))
-	setRole(style, "elevated_surface.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "elevated")))
-	setRole(style, "panel.overlay_background", withAlpha(role("surface"), alphaFor(appearance, alpha, "overlay")))
+	setRole(style, "background", role("surface"))
+	setRole(style, "surface.background", role("surface"))
+	setRole(style, "elevated_surface.background", role("surface"))
+	setRole(style, "panel.overlay_background", role("surface"))
 
 	setRole(style, "editor.background", role("surface"))
 	setRole(style, "editor.gutter.background", role("surface"))
-	setRole(style, "editor.subheader.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "subheader")))
-	setRole(style, "editor.active_line.background", withAlpha(role("overlay"), alphaFor(appearance, alpha, "active_line")))
-	setRole(style, "editor.highlighted_line.background", withAlpha(role("overlay"), alphaFor(appearance, alpha, "highlighted_line")))
+	setRole(style, "editor.subheader.background", role("surface"))
+	setRole(style, "editor.active_line.background", role("overlay"))
+	setRole(style, "editor.highlighted_line.background", role("overlay"))
 	setRole(style, "editor.foreground", role("text"))
 	setRole(style, "editor.line_number", role("muted"))
 	setRole(style, "editor.active_line_number", role("foam"))
 	setRole(style, "editor.invisible", role("muted"))
-	setRole(style, "editor.indent_guide", withAlpha(role("muted"), alphaFor(appearance, alpha, "indent_guide")))
-	setRole(style, "editor.indent_guide_active", withAlpha(role("subtle"), alphaFor(appearance, alpha, "indent_guide_active")))
-	setRole(style, "editor.wrap_guide", withAlpha(role("muted"), alphaFor(appearance, alpha, "wrap_guide")))
-	setRole(style, "editor.active_wrap_guide", withAlpha(role("muted"), alphaFor(appearance, alpha, "active_wrap_guide")))
-	setRole(style, "editor.document_highlight.read_background", withAlpha(role("foam"), alphaFor(appearance, alpha, "doc_highlight_read")))
-	setRole(style, "editor.document_highlight.write_background", withAlpha(role("muted"), alphaFor(appearance, alpha, "doc_highlight_write")))
-	setRole(style, "editor.document_highlight.bracket_background", withAlpha(role("iris"), alphaFor(appearance, alpha, "doc_highlight_bracket")))
-	setRole(style, "editor.debugger_active_line.background", withAlpha(role("rose"), alphaFor(appearance, alpha, "debugger_line")))
+	setRole(style, "editor.indent_guide", role("muted"))
+	setRole(style, "editor.indent_guide_active", role("subtle"))
+	setRole(style, "editor.wrap_guide", role("muted"))
+	setRole(style, "editor.active_wrap_guide", role("muted"))
+	setRole(style, "editor.document_highlight.read_background", role("foam"))
+	setRole(style, "editor.document_highlight.write_background", role("muted"))
+	setRole(style, "editor.document_highlight.bracket_background", role("iris"))
+	setRole(style, "editor.debugger_active_line.background", role("rose"))
 
-	setRole(style, "drop_target.background", withAlpha(role("text"), alphaFor(appearance, alpha, "drop_target")))
+	setRole(style, "drop_target.background", role("text"))
 
 	setRole(style, "text", role("text"))
 	setRole(style, "text.muted", role("muted"))
@@ -475,56 +502,56 @@ func applyRoleMappings(style map[string]any, p Palette, alpha AlphaConfig) {
 
 	setRole(style, "border", "#00000000")
 	setRole(style, "border.transparent", "#00000000")
-	setRole(style, "border.variant", withAlpha(role("foam"), alphaFor(appearance, alpha, "border_variant")))
-	setRole(style, "border.focused", withAlpha(role("foam"), alphaFor(appearance, alpha, "border_focused")))
-	setRole(style, "border.selected", withAlpha(role("iris"), alphaFor(appearance, alpha, "border_selected")))
-	setRole(style, "border.disabled", withAlpha(role("muted"), alphaFor(appearance, alpha, "border_disabled")))
+	setRole(style, "border.variant", role("foam"))
+	setRole(style, "border.focused", role("foam"))
+	setRole(style, "border.selected", role("iris"))
+	setRole(style, "border.disabled", role("muted"))
 
-	setRole(style, "tab.active_background", withAlpha(role("surface"), alphaFor(appearance, alpha, "tab_active")))
+	setRole(style, "tab.active_background", role("surface"))
 	setRole(style, "tab.inactive_background", "#00000000")
 	setRole(style, "tab_bar.background", "#00000000")
 	setRole(style, "tab.active_foreground", role("text"))
 	setRole(style, "tab.inactive_foreground", role("muted"))
 
-	setRole(style, "status_bar.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "ui")))
-	setRole(style, "title_bar.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "ui")))
-	setRole(style, "title_bar.inactive_background", withAlpha(role("surface"), alphaFor(appearance, alpha, "ui_inactive")))
+	setRole(style, "status_bar.background", role("surface"))
+	setRole(style, "title_bar.background", role("surface"))
+	setRole(style, "title_bar.inactive_background", role("surface"))
 	setRole(style, "status_bar.foreground", role("text"))
 	setRole(style, "title_bar.foreground", role("text"))
 
-	setRole(style, "element.active", withAlpha(role("highlight_med"), alphaFor(appearance, alpha, "element_active")))
-	setRole(style, "element.selected", withAlpha(role("highlight_med"), alphaFor(appearance, alpha, "element_selected")))
-	setRole(style, "element.hover", withAlpha(role("highlight_low"), alphaFor(appearance, alpha, "element_hover")))
-	setRole(style, "element.disabled", withAlpha(role("surface"), alphaFor(appearance, alpha, "element_disabled")))
+	setRole(style, "element.active", role("highlight_med"))
+	setRole(style, "element.selected", role("highlight_med"))
+	setRole(style, "element.hover", role("highlight_low"))
+	setRole(style, "element.disabled", role("surface"))
 	setRole(style, "element.background", role("surface"))
 
-	setRole(style, "ghost_element.active", withAlpha(role("highlight_high"), alphaFor(appearance, alpha, "ghost_active")))
-	setRole(style, "ghost_element.selected", withAlpha(role("highlight_high"), alphaFor(appearance, alpha, "ghost_selected")))
-	setRole(style, "ghost_element.hover", withAlpha(role("highlight_low"), alphaFor(appearance, alpha, "ghost_hover")))
-	setRole(style, "ghost_element.disabled", withAlpha(role("surface"), alphaFor(appearance, alpha, "ghost_disabled")))
+	setRole(style, "ghost_element.active", role("highlight_high"))
+	setRole(style, "ghost_element.selected", role("highlight_high"))
+	setRole(style, "ghost_element.hover", role("highlight_low"))
+	setRole(style, "ghost_element.disabled", role("surface"))
 	setRole(style, "ghost_element.background", role("surface"))
 
-	setRole(style, "minimap.thumb.background", withAlpha(role("foam"), alphaFor(appearance, alpha, "minimap_bg")))
-	setRole(style, "minimap.thumb.hover_background", withAlpha(role("foam"), alphaFor(appearance, alpha, "minimap_hover")))
-	setRole(style, "minimap.thumb.active_background", withAlpha(role("foam"), alphaFor(appearance, alpha, "minimap_active")))
+	setRole(style, "minimap.thumb.background", role("foam"))
+	setRole(style, "minimap.thumb.hover_background", role("foam"))
+	setRole(style, "minimap.thumb.active_background", role("foam"))
 	setAny(style, "minimap.thumb.border", nil)
 
-	setRole(style, "pane.focused_border", withAlpha(role("muted"), alphaFor(appearance, alpha, "pane_focus_border")))
-	setRole(style, "pane_group.border", withAlpha(role("muted"), alphaFor(appearance, alpha, "pane_group_border")))
-	setRole(style, "panel.focused_border", withAlpha(role("muted"), alphaFor(appearance, alpha, "panel_focus_border")))
-	setRole(style, "panel.indent_guide", withAlpha(role("muted"), alphaFor(appearance, alpha, "panel_indent_guide")))
-	setRole(style, "panel.indent_guide_active", withAlpha(role("subtle"), alphaFor(appearance, alpha, "panel_indent_guide_active")))
+	setRole(style, "pane.focused_border", role("muted"))
+	setRole(style, "pane_group.border", role("muted"))
+	setRole(style, "panel.focused_border", role("muted"))
+	setRole(style, "panel.indent_guide", role("muted"))
+	setRole(style, "panel.indent_guide_active", role("subtle"))
 	setRole(style, "panel.indent_guide_hover", role("foam"))
 
-	setRole(style, "scrollbar.thumb.background", withAlpha(role("muted"), alphaFor(appearance, alpha, "scrollbar_thumb")))
-	setRole(style, "scrollbar.thumb.hover_background", withAlpha(role("muted"), alphaFor(appearance, alpha, "scrollbar_thumb_hover")))
+	setRole(style, "scrollbar.thumb.background", role("muted"))
+	setRole(style, "scrollbar.thumb.hover_background", role("muted"))
 	setAny(style, "scrollbar.thumb.active_background", nil)
 	setAny(style, "scrollbar.thumb.border", nil)
-	setRole(style, "scrollbar.track.background", withAlpha(role("surface"), alphaFor(appearance, alpha, "scrollbar_track")))
-	setRole(style, "scrollbar.track.border", withAlpha(role("text"), alphaFor(appearance, alpha, "scrollbar_track_border")))
+	setRole(style, "scrollbar.track.background", role("surface"))
+	setRole(style, "scrollbar.track.border", role("text"))
 
-	setRole(style, "search.match_background", withAlpha(role("foam"), alphaFor(appearance, alpha, "search_match")))
-	setRole(style, "search.active_match_background", withAlpha(role("rose"), alphaFor(appearance, alpha, "search_active")))
+	setRole(style, "search.match_background", role("foam"))
+	setRole(style, "search.active_match_background", role("rose"))
 
 	semantic := map[string]string{
 		"error":       role("love"),
@@ -558,8 +585,8 @@ func applyRoleMappings(style map[string]any, p Palette, alpha AlphaConfig) {
 	setRole(style, "version_control.renamed", semantic["renamed"])
 	setRole(style, "version_control.conflict", firstNonEmpty(semantic["modified"], semantic["conflict"]))
 	setRole(style, "version_control.ignored", semantic["ignored"])
-	setRole(style, "version_control.conflict_marker.ours", withAlpha(semantic["warning"], alphaFor(appearance, alpha, "conflict_marker")))
-	setRole(style, "version_control.conflict_marker.theirs", withAlpha(role("foam"), alphaFor(appearance, alpha, "conflict_marker")))
+	setRole(style, "version_control.conflict_marker.ours", semantic["warning"])
+	setRole(style, "version_control.conflict_marker.theirs", role("foam"))
 
 	setRole(style, "debugger.accent", semantic["error"])
 
@@ -814,6 +841,74 @@ type alphaSpec struct {
 	alphaKey string
 	styleKey string
 	base     func(p Palette) string
+	force    bool
+}
+
+func alphaSpecs() []alphaSpec {
+	role := func(p Palette, name string) string { return p.Roles[name] }
+	semantic := func(p Palette, name string) string { return semanticColor(p, name) }
+	terminalBase := func(p Palette, key string) string {
+		if p.Terminal == nil {
+			return ""
+		}
+		if v, ok := p.Terminal[key]; ok {
+			return stripAlpha(v)
+		}
+		return ""
+	}
+
+	return []alphaSpec{
+		{"ui", "background", func(p Palette) string { return role(p, "surface") }, false},
+		{"ui", "status_bar.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"ui", "title_bar.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"ui_inactive", "title_bar.inactive_background", func(p Palette) string { return role(p, "surface") }, false},
+		{"surface", "surface.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"elevated", "elevated_surface.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"overlay", "panel.overlay_background", func(p Palette) string { return role(p, "surface") }, false},
+		{"subheader", "editor.subheader.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"active_line", "editor.active_line.background", func(p Palette) string { return role(p, "overlay") }, false},
+		{"highlighted_line", "editor.highlighted_line.background", func(p Palette) string { return role(p, "overlay") }, false},
+		{"element_active", "element.active", func(p Palette) string { return role(p, "highlight_med") }, false},
+		{"element_selected", "element.selected", func(p Palette) string { return role(p, "highlight_med") }, false},
+		{"element_hover", "element.hover", func(p Palette) string { return role(p, "highlight_low") }, false},
+		{"element_disabled", "element.disabled", func(p Palette) string { return role(p, "surface") }, false},
+		{"ghost_active", "ghost_element.active", func(p Palette) string { return role(p, "highlight_high") }, false},
+		{"ghost_selected", "ghost_element.selected", func(p Palette) string { return role(p, "highlight_high") }, false},
+		{"ghost_hover", "ghost_element.hover", func(p Palette) string { return role(p, "highlight_low") }, false},
+		{"ghost_disabled", "ghost_element.disabled", func(p Palette) string { return role(p, "surface") }, false},
+		{"border_variant", "border.variant", func(p Palette) string { return role(p, "foam") }, false},
+		{"border_focused", "border.focused", func(p Palette) string { return role(p, "foam") }, false},
+		{"border_selected", "border.selected", func(p Palette) string { return role(p, "iris") }, false},
+		{"border_disabled", "border.disabled", func(p Palette) string { return role(p, "muted") }, false},
+		{"tab_active", "tab.active_background", func(p Palette) string { return role(p, "surface") }, false},
+		{"conflict_marker", "version_control.conflict_marker.ours", func(p Palette) string { return semantic(p, "warning") }, false},
+		{"conflict_marker", "version_control.conflict_marker.theirs", func(p Palette) string { return role(p, "foam") }, false},
+		{"panel_focus_border", "panel.focused_border", func(p Palette) string { return role(p, "muted") }, false},
+		{"panel_indent_guide", "panel.indent_guide", func(p Palette) string { return role(p, "muted") }, false},
+		{"panel_indent_guide_active", "panel.indent_guide_active", func(p Palette) string { return role(p, "subtle") }, false},
+		{"pane_focus_border", "pane.focused_border", func(p Palette) string { return role(p, "muted") }, false},
+		{"pane_group_border", "pane_group.border", func(p Palette) string { return role(p, "muted") }, false},
+		{"scrollbar_thumb", "scrollbar.thumb.background", func(p Palette) string { return role(p, "muted") }, false},
+		{"scrollbar_thumb_hover", "scrollbar.thumb.hover_background", func(p Palette) string { return role(p, "muted") }, false},
+		{"scrollbar_track", "scrollbar.track.background", func(p Palette) string { return role(p, "surface") }, false},
+		{"scrollbar_track_border", "scrollbar.track.border", func(p Palette) string { return role(p, "text") }, false},
+		{"search_match", "search.match_background", func(p Palette) string { return role(p, "foam") }, false},
+		{"search_active", "search.active_match_background", func(p Palette) string { return role(p, "rose") }, false},
+		{"debugger_line", "editor.debugger_active_line.background", func(p Palette) string { return role(p, "rose") }, false},
+		{"indent_guide", "editor.indent_guide", func(p Palette) string { return role(p, "muted") }, false},
+		{"indent_guide_active", "editor.indent_guide_active", func(p Palette) string { return role(p, "subtle") }, false},
+		{"wrap_guide", "editor.wrap_guide", func(p Palette) string { return role(p, "muted") }, false},
+		{"active_wrap_guide", "editor.active_wrap_guide", func(p Palette) string { return role(p, "muted") }, false},
+		{"doc_highlight_read", "editor.document_highlight.read_background", func(p Palette) string { return role(p, "foam") }, false},
+		{"doc_highlight_write", "editor.document_highlight.write_background", func(p Palette) string { return role(p, "muted") }, false},
+		{"doc_highlight_bracket", "editor.document_highlight.bracket_background", func(p Palette) string { return role(p, "iris") }, false},
+		{"drop_target", "drop_target.background", func(p Palette) string { return role(p, "text") }, false},
+		{"minimap_bg", "minimap.thumb.background", func(p Palette) string { return role(p, "foam") }, false},
+		{"minimap_hover", "minimap.thumb.hover_background", func(p Palette) string { return role(p, "foam") }, false},
+		{"minimap_active", "minimap.thumb.active_background", func(p Palette) string { return role(p, "foam") }, false},
+		{"terminal_background", "terminal.background", func(p Palette) string { return terminalBase(p, "terminal.background") }, true},
+		{"terminal_ansi_background", "terminal.ansi.background", func(p Palette) string { return terminalBase(p, "terminal.ansi.background") }, true},
+	}
 }
 
 func applyAlphaOverrides(palette *Palette, base AlphaConfig, reference map[string]any) {
@@ -829,56 +924,7 @@ func applyAlphaOverrides(palette *Palette, base AlphaConfig, reference map[strin
 		}
 	}
 
-	role := func(name string) string { return palette.Roles[name] }
-	semantic := func(name string) string { return semanticColor(*palette, name) }
-
-	specs := []alphaSpec{
-		{"ui", "background", func(p Palette) string { return role("surface") }},
-		{"ui_inactive", "title_bar.inactive_background", func(p Palette) string { return role("surface") }},
-		{"surface", "surface.background", func(p Palette) string { return role("surface") }},
-		{"elevated", "elevated_surface.background", func(p Palette) string { return role("surface") }},
-		{"overlay", "panel.overlay_background", func(p Palette) string { return role("surface") }},
-		{"subheader", "editor.subheader.background", func(p Palette) string { return role("surface") }},
-		{"active_line", "editor.active_line.background", func(p Palette) string { return role("overlay") }},
-		{"highlighted_line", "editor.highlighted_line.background", func(p Palette) string { return role("overlay") }},
-		{"element_active", "element.active", func(p Palette) string { return role("highlight_med") }},
-		{"element_selected", "element.selected", func(p Palette) string { return role("highlight_med") }},
-		{"element_hover", "element.hover", func(p Palette) string { return role("highlight_low") }},
-		{"element_disabled", "element.disabled", func(p Palette) string { return role("surface") }},
-		{"ghost_active", "ghost_element.active", func(p Palette) string { return role("highlight_high") }},
-		{"ghost_selected", "ghost_element.selected", func(p Palette) string { return role("highlight_high") }},
-		{"ghost_hover", "ghost_element.hover", func(p Palette) string { return role("highlight_low") }},
-		{"ghost_disabled", "ghost_element.disabled", func(p Palette) string { return role("surface") }},
-		{"border_variant", "border.variant", func(p Palette) string { return role("foam") }},
-		{"border_focused", "border.focused", func(p Palette) string { return role("foam") }},
-		{"border_selected", "border.selected", func(p Palette) string { return role("iris") }},
-		{"border_disabled", "border.disabled", func(p Palette) string { return role("muted") }},
-		{"tab_active", "tab.active_background", func(p Palette) string { return role("surface") }},
-		{"conflict_marker", "version_control.conflict_marker.ours", func(p Palette) string { return semantic("warning") }},
-		{"panel_focus_border", "panel.focused_border", func(p Palette) string { return role("muted") }},
-		{"panel_indent_guide", "panel.indent_guide", func(p Palette) string { return role("muted") }},
-		{"panel_indent_guide_active", "panel.indent_guide_active", func(p Palette) string { return role("subtle") }},
-		{"pane_focus_border", "pane.focused_border", func(p Palette) string { return role("muted") }},
-		{"pane_group_border", "pane_group.border", func(p Palette) string { return role("muted") }},
-		{"scrollbar_thumb", "scrollbar.thumb.background", func(p Palette) string { return role("muted") }},
-		{"scrollbar_thumb_hover", "scrollbar.thumb.hover_background", func(p Palette) string { return role("muted") }},
-		{"scrollbar_track", "scrollbar.track.background", func(p Palette) string { return role("surface") }},
-		{"scrollbar_track_border", "scrollbar.track.border", func(p Palette) string { return role("text") }},
-		{"search_match", "search.match_background", func(p Palette) string { return role("foam") }},
-		{"search_active", "search.active_match_background", func(p Palette) string { return role("rose") }},
-		{"debugger_line", "editor.debugger_active_line.background", func(p Palette) string { return role("rose") }},
-		{"indent_guide", "editor.indent_guide", func(p Palette) string { return role("muted") }},
-		{"indent_guide_active", "editor.indent_guide_active", func(p Palette) string { return role("subtle") }},
-		{"wrap_guide", "editor.wrap_guide", func(p Palette) string { return role("muted") }},
-		{"active_wrap_guide", "editor.active_wrap_guide", func(p Palette) string { return role("muted") }},
-		{"doc_highlight_read", "editor.document_highlight.read_background", func(p Palette) string { return role("foam") }},
-		{"doc_highlight_write", "editor.document_highlight.write_background", func(p Palette) string { return role("muted") }},
-		{"doc_highlight_bracket", "editor.document_highlight.bracket_background", func(p Palette) string { return role("iris") }},
-		{"drop_target", "drop_target.background", func(p Palette) string { return role("text") }},
-		{"minimap_bg", "minimap.thumb.background", func(p Palette) string { return role("foam") }},
-		{"minimap_hover", "minimap.thumb.hover_background", func(p Palette) string { return role("foam") }},
-		{"minimap_active", "minimap.thumb.active_background", func(p Palette) string { return role("foam") }},
-	}
+	specs := alphaSpecs()
 
 	overrides := map[string]string{}
 	for _, spec := range specs {
@@ -942,52 +988,20 @@ func pruneAlphaOverrides(palette *Palette, template map[string]any, alphaCfg Alp
 }
 
 func alphaDerivedKeys() []string {
-	return []string{
-		"background",
-		"surface.background",
-		"elevated_surface.background",
-		"panel.overlay_background",
-		"editor.subheader.background",
-		"editor.active_line.background",
-		"editor.highlighted_line.background",
-		"element.active",
-		"element.selected",
-		"element.hover",
-		"element.disabled",
-		"ghost_element.active",
-		"ghost_element.selected",
-		"ghost_element.hover",
-		"ghost_element.disabled",
-		"border.variant",
-		"border.focused",
-		"border.selected",
-		"border.disabled",
-		"tab.active_background",
-		"version_control.conflict_marker.ours",
-		"panel.focused_border",
-		"panel.indent_guide",
-		"panel.indent_guide_active",
-		"pane.focused_border",
-		"pane_group.border",
-		"scrollbar.thumb.background",
-		"scrollbar.thumb.hover_background",
-		"scrollbar.track.background",
-		"scrollbar.track.border",
-		"search.match_background",
-		"search.active_match_background",
-		"editor.debugger_active_line.background",
-		"editor.indent_guide",
-		"editor.indent_guide_active",
-		"editor.wrap_guide",
-		"editor.active_wrap_guide",
-		"editor.document_highlight.read_background",
-		"editor.document_highlight.write_background",
-		"editor.document_highlight.bracket_background",
-		"drop_target.background",
-		"minimap.thumb.background",
-		"minimap.thumb.hover_background",
-		"minimap.thumb.active_background",
+	specs := alphaSpecs()
+	seen := map[string]struct{}{}
+	keys := make([]string, 0, len(specs))
+	for _, spec := range specs {
+		if spec.styleKey == "" {
+			continue
+		}
+		if _, ok := seen[spec.styleKey]; ok {
+			continue
+		}
+		seen[spec.styleKey] = struct{}{}
+		keys = append(keys, spec.styleKey)
 	}
+	return keys
 }
 
 func semanticColor(p Palette, name string) string {
