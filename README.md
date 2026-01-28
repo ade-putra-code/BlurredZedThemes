@@ -1,5 +1,3 @@
-# Blurred Zed Themes
-
 <p align="center">
   <img alt="Blurred Zed Themes" src="https://img.shields.io/badge/Blurred%20Zed%20Themes-curated%20hybrid%20collection-111827?style=for-the-badge" />
   <img alt="Themes" src="https://img.shields.io/badge/themes-12-4C9AFF?style=flat-square" />
@@ -13,7 +11,7 @@
 
 ## Design goals
 
-- Blurred UI surfaces with stable editor backgrounds.
+- Blurred UI surfaces with stable editor backgrounds (or some little experiments).
 - Carefully tuned alpha values for panels, overlays, tabs, and status bars.
 - Consistent syntax mapping across all themes.
 
