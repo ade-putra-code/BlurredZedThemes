@@ -624,12 +624,12 @@
         "editor.foreground": "#575279",
         "editor.gutter.background": "#fffaf3",
         "editor.highlighted_line.background": "#F2E9E1CC",
-        "editor.indent_guide": "#6E6A8688",
+        "editor.indent_guide": "#6E6A8666",
         "editor.indent_guide_active": "#6E6A86AA",
         "editor.invisible": "#6e6a86",
         "editor.line_number": "#6e6a86",
         "editor.subheader.background": "#FFFAF3F2",
-        "editor.wrap_guide": "#6E6A8644",
+        "editor.wrap_guide": "#6E6A8633",
 
         "element.active": "#D9D4DF8C",
         "element.background": "#fffaf3",
@@ -681,7 +681,7 @@
 
         "panel.background": "#00000000",
         "panel.focused_border": "#6E6A8644",
-        "panel.indent_guide": "#6E6A8688",
+        "panel.indent_guide": "#6E6A8666",
         "panel.indent_guide_active": "#6E6A86AA",
         "panel.indent_guide_hover": "#56949f",
         "panel.overlay_background": "#FFFAF3CC",

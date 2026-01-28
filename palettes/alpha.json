@@ -22,7 +22,7 @@
     "ghost_hover": "66",
     "ghost_selected": "80",
     "highlighted_line": "12",
-    "indent_guide": "99",
+    "indent_guide": "66",
     "indent_guide_active": "FF",
     "minimap_active": "99",
     "minimap_bg": "33",
@@ -31,7 +31,7 @@
     "pane_focus_border": "30",
     "pane_group_border": "20",
     "panel_focus_border": "30",
-    "panel_indent_guide": "99",
+    "panel_indent_guide": "66",
     "panel_indent_guide_active": "FF",
     "scrollbar_thumb": "80",
     "scrollbar_thumb_hover": "FF",
@@ -46,7 +46,7 @@
     "tab_active": "EE",
     "ui": "E0",
     "ui_inactive": "CC",
-    "wrap_guide": "66"
+    "wrap_guide": "44"
   },
   "light": {
     "active_line": "80",
@@ -71,7 +71,7 @@
     "ghost_hover": "CC",
     "ghost_selected": "B3",
     "highlighted_line": "CC",
-    "indent_guide": "88",
+    "indent_guide": "66",
     "indent_guide_active": "AA",
     "minimap_active": "80",
     "minimap_bg": "26",
@@ -80,7 +80,7 @@
     "pane_focus_border": "66",
     "pane_group_border": "33",
     "panel_focus_border": "44",
-    "panel_indent_guide": "88",
+    "panel_indent_guide": "66",
     "panel_indent_guide_active": "AA",
     "scrollbar_thumb": "4D",
     "scrollbar_thumb_hover": "80",
@@ -95,6 +95,6 @@
     "tab_active": "EE",
     "ui": "C6",
     "ui_inactive": "C6",
-    "wrap_guide": "44"
+    "wrap_guide": "33"
   }
 }
