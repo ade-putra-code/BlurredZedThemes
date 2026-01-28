@@ -22,17 +22,17 @@
         "title_bar.background": "#fffaf3cc",
         "title_bar.inactive_background": "#fffaf3cc",
         "status_bar.background": "#fffaf3cc",
-        "element.hover": "#e9e1dacc",
 
         "background": "#fffaf3cc",
         "surface.background": "#fffaf3cc",
         "elevated_surface.background": "#fffaf3",
         "panel.overlay_background": "#fffaf3cc",
 
-        "ghost_element.hover": "#e9e1dacc",
         "ghost_element.active": "#cecacdcc",
         "element.active": "#d9d4df8c",
         "element.selected": "#d9d4dfb3",
+        "element.hover": "#f4ede8cc",
+        "ghost_element.hover": "#f4ede8cc",
 
         "element.background": "#fffaf3",
         "ghost_element.background": "#fffaf3",
