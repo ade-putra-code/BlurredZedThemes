@@ -317,7 +317,7 @@
 
         "elevated_surface.background": "#24211EF0",
 
-        "error.background": "#B36B421F",
+        "error.background": "#24211E",
         "error.border": "#B36B42",
 
         "ghost_element.active": "#77824A66",
