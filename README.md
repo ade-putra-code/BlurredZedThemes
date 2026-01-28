@@ -127,9 +127,9 @@ All common workflows are wrapped in `Taskfile.yml`:
 
 ```bash
 task gen-all
-task sync THEME=evergarden-hybrid
+task sync THEME=evergarden-winter-hybrid
 task sync-all
-task extract THEME=evergarden-hybrid
+task extract THEME=evergarden-winter-hybrid
 task publish
 task verify
 ```

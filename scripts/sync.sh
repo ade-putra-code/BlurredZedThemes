@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [[ $# -lt 1 ]]; then
   echo "usage: scripts/sync.sh <theme-name-without-extension>"
-  echo "example: scripts/sync.sh evergarden-hybrid"
+  echo "example: scripts/sync.sh evergarden-winter-hybrid"
   exit 1
 fi
 
