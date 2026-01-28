@@ -302,7 +302,7 @@
         "element.hover": "#3B4252CC",
         "element.selected": "#3B425280",
 
-        "elevated_surface.background": "#242933F0",
+        "elevated_surface.background": "#242933FF",
 
         "error.background": "#242933",
         "error.border": "#C5727A",

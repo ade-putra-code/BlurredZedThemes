@@ -484,7 +484,7 @@
         "element.hover": "#374145CC",
         "element.selected": "#4A585C80",
 
-        "elevated_surface.background": "#232A2EF0",
+        "elevated_surface.background": "#232A2EFF",
 
         "error.background": "#232A2E",
         "error.border": "#F57F82",

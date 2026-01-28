@@ -404,7 +404,7 @@
         "element.hover": "#292E42CC",
         "element.selected": "#292E4280",
 
-        "elevated_surface.background": "#1A1B26F0",
+        "elevated_surface.background": "#1A1B26FF",
 
         "error.background": "#1a1b26",
         "error.border": "#db4b4b",

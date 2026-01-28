@@ -16,7 +16,7 @@
     "element_disabled": "40",
     "element_hover": "66",
     "element_selected": "80",
-    "elevated": "F0",
+    "elevated": "FF",
     "ghost_active": "66",
     "ghost_disabled": "40",
     "ghost_hover": "66",
