@@ -1,10 +1,23 @@
 # Blurred Zed Themes
 
-A small collection of blurred hybrid themes for the Zed editor, inspired by Neovim palettes and adapted to Zed’s modern UI.
+<p align="center">
+  <img alt="Blurred Zed Themes" src="https://img.shields.io/badge/Blurred%20Zed%20Themes-curated%20hybrid%20collection-111827?style=for-the-badge" />
+  <img alt="Themes" src="https://img.shields.io/badge/themes-12-4C9AFF?style=flat-square" />
+  <img alt="Status" src="https://img.shields.io/badge/status-maintained-30D158?style=flat-square" />
+</p>
 
-These themes are created by overriding and extending existing Zed themes, then carefully tuning surfaces, blur, contrast, and syntax highlighting to match a modern, minimal workflow.
+<p align="center">
+  A curated collection of blurred hybrid themes for the Zed editor, tuned for modern UI surfaces,
+  clean contrast, and consistent syntax colors.
+</p>
 
-## Themes
+## Design goals
+
+- Blurred UI surfaces with stable editor backgrounds.
+- Carefully tuned alpha values for panels, overlays, tabs, and status bars.
+- Consistent syntax mapping across all themes.
+
+## Theme gallery
 
 <details>
 <summary><strong>Evergarden Winter Green (Hybrid)</strong></summary>
@@ -104,22 +117,26 @@ Preview:
 
 </details>
 
-## Installation
-
-1. Copy the theme JSON file into your Zed themes directory:
+## Quick start
 
 ```bash
-~/.config/zed/themes/
+mkdir -p ~/.config/zed/themes
+cp themes/*.json ~/.config/zed/themes/
 ```
 
-2. Restart Zed (or reload themes).
-3. Select the theme in Settings → Theme.
+Then restart Zed (or reload themes) and select a theme in Settings → Theme.
 
 ## Notes
 
 - These themes rely on Zed’s `"background.appearance": "blurred"` setting.
 - Designed primarily for macOS, but should work on other platforms that support blur.
 - Syntax highlighting is customized beyond default Zed mappings.
+
+## Customization
+
+- Global alpha presets live in `palettes/alpha.json`.
+- Per-theme overrides live in `palettes/<theme>.json`.
+- Regenerate theme files via Taskfile (see below).
 
 ## Taskfile workflow
 
@@ -142,7 +159,8 @@ Notes:
 - The generator fills missing fields with `TODO` placeholders and applies safe defaults.
 - Published/reference themes live in `themes/`.
 
-## Credits
+<details>
+<summary><strong>Credits</strong></summary>
 
 - Evergarden / Everviolet (Neovim): https://github.com/everviolet/nvim
 - Rosé Pine (Zed): https://github.com/rose-pine/zed
@@ -154,24 +172,9 @@ Notes:
 - Catppuccin (Zed): https://github.com/catppuccin/zed
 - Zed Editor: https://zed.dev
 
-## Contributing & Feedback
+</details>
 
-Feel free to open issues or discussions if you have suggestions, improvements, or ideas for new themes.
+## Contributing
 
-This project is intentionally opinionated, but constructive feedback about readability, contrast, accessibility, or Zed-specific behavior is always welcome.
-
-If you notice:
-
-- incorrect or missing syntax mappings
-- inconsistent blur or surface behavior
-- UI elements that feel out of place in Zed
-- differences from the original Neovim themes that should be closer
-
-please report them.
-
-Pull requests are also welcome, especially for:
-
-- additional theme variants
-- improved syntax coverage
-- better alignment with upstream Neovim color schemes
-- platform-specific adjustments
+- Open issues for visual inconsistencies, contrast/accessibility concerns, or missing mappings.
+- PRs are welcome for new variants, improved syntax coverage, or closer alignment with upstream palettes.
