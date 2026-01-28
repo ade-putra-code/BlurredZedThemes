@@ -19,29 +19,28 @@
         "background.appearance": "blurred",
         "editor.highlighted_line.background": "#f2e9e1cc",
 
+        "title_bar.background": "#fffaf3cc",
+        "title_bar.inactive_background": "#fffaf3cc",
+        "status_bar.background": "#fffaf3cc",
+
+        "background": "#fffaf3cc",
+        "surface.background": "#fffaf3cc",
+        "elevated_surface.background": "#fffaf3",
+        "panel.overlay_background": "#fffaf3cc",
+
         "element.hover": "#e9e1dacc",
         "ghost_element.hover": "#e9e1dacc",
         "ghost_element.active": "#cecacdcc",
         "element.active": "#d9d4df8c",
         "element.selected": "#d9d4dfb3",
 
-        "element.background": "#fffaf3ff",
-        "ghost_element.background": "#fffaf3ff",
+        "element.background": "#fffaf3",
+        "ghost_element.background": "#fffaf3",
         "ghost_element.selected": "#d9d4dfb3",
         "element.disabled": "#fffaf366",
         "ghost_element.disabled": "#fffaf366",
 
         "drop_target.background": "#57527922",
-
-        "title_bar.background": "#faf4edcd",
-        "title_bar.inactive_background": "#faf4edcd",
-        "status_bar.background": "#faf4edcd",
-
-        "surface.background": "#fffaf3ee",
-
-        "background": "#faf4edcc",
-        "elevated_surface.background": "#fffaf3f2",
-        "panel.overlay_background": "#fffaf3f2",
 
         "panel.background": "#00000000",
 
@@ -52,7 +51,7 @@
         "tab.active_background": "#00000000",
 
         "border": "#00000000",
-        "border.variant": "#56949f66",
+        "border.variant": "#56949f88",
         "border.transparent": "#00000000",
         "border.disabled": "#9893a566",
         "border.focused": "#56949f55",
@@ -119,7 +118,7 @@
         "search.match_background": "#56949f33",
         "search.active_match_background": "#d7827e33",
 
-        "terminal.background": "#fffaf3cc",
+        "terminal.background": "#fffaf3",
         "terminal.ansi.background": "#fffaf3",
         "terminal.foreground": "#575279",
         "terminal.dim_foreground": "#797593",
