@@ -37,7 +37,7 @@
         "status_bar.background": "#24211EE0",
 
         "tab_bar.background": "#00000000",
-        "tab.active_background": "#00000000",
+        "tab.active_background": "#24211EEE",
         "tab.inactive_background": "#00000000",
         "tab.active_foreground": "#D7C484",
         "tab.inactive_foreground": "#D7C484B3",

@@ -55,7 +55,7 @@
         "tab.active_foreground": "#C5C9C5",
         "tab.inactive_foreground": "#7A8382",
         "tab.inactive_background": "#00000000",
-        "tab.active_background": "#12120F66",
+        "tab.active_background": "#181616EE",
 
         "element.background": "#12120F1F",
         "element.hover": "#625E5A33",

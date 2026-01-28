@@ -27,7 +27,7 @@
         "tab.inactive_foreground": "#96B4AA",
         "tab_bar.background": "#00000000",
         "tab.inactive_background": "#00000000",
-        "tab.active_background": "#00000000",
+        "tab.active_background": "#1E2528EE",
 
         "icon.accent": "#CBE3B3",
         "icon.muted": "#96B4AA",

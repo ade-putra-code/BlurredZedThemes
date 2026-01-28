@@ -25,7 +25,7 @@
         "tab.inactive_foreground": "#9AA7BE",
         "tab_bar.background": "#00000000",
         "tab.inactive_background": "#00000000",
-        "tab.active_background": "#00000000",
+        "tab.active_background": "#242933EE",
 
         "editor.line_number": "#6B778D",
         "editor.active_line_number": "#D8DEE9",
