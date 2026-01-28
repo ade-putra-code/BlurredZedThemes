@@ -4,7 +4,7 @@ A small collection of blurred hybrid themes for the Zed editor, inspired by Neov
 
 These themes are created by overriding and extending existing Zed themes, then carefully tuning surfaces, blur, contrast, and syntax highlighting to match a modern, minimal workflow.
 
-## Themes 
+## Themes
 
 <details>
 <summary><strong>Evergarden Winter Green (Hybrid)</strong></summary>
@@ -12,10 +12,12 @@ These themes are created by overriding and extending existing Zed themes, then c
 Based on Evergarden / Everviolet (Neovim).
 
 Source / inspiration:
+
 - Evergarden (Everviolet): https://github.com/everviolet/nvim
 
 Preview:
 <img width="1941" height="1099" alt="Evergarden Winter Green (Hybrid)" src="https://github.com/user-attachments/assets/a551c81f-73b1-4aec-a0f8-476ff8aefbac" />
+
 </details>
 
 <details>
@@ -24,10 +26,12 @@ Preview:
 Inspired by Rosé Pine Dawn (Zed) with a consistent blurred UI and stable editor background.
 
 Source / inspiration:
+
 - Rosé Pine (Zed): https://github.com/rose-pine/zed
 
 Preview:
 <img width="1878" height="1090" alt="Rosé Pine Dawn (Hybrid)" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />
+
 </details>
 
 <details>
@@ -36,10 +40,12 @@ Preview:
 A cool, desaturated theme with clean separation between UI surfaces and editor content. Based on nvim theme.
 
 Source / inspiration:
+
 - Nordic.nvim (Neovim): https://github.com/AlexvZyl/nordic.nvim
 
 Preview:
 <img width="1509" height="887" alt="Nordic (Hybrid)" src="https://github.com/user-attachments/assets/be112f4e-6176-411a-92bf-d7659a2838d7" />
+
 </details>
 
 <details>
@@ -48,10 +54,12 @@ Preview:
 A Zed reinterpretation of LunarVim’s colorscheme and blurred/borderless Zed UI.
 
 Source / inspiration:
+
 - LunarVim Colorschemes: https://github.com/LunarVim/Colorschemes
 
 Preview:
 <img width="1504" height="882" alt="Lunar (Hybrid)" src="https://github.com/user-attachments/assets/a0e76368-8ffb-4d9b-ad9d-99bccc3884d3" />
+
 </details>
 
 <details>
@@ -60,10 +68,12 @@ Preview:
 Earth tones and low saturation with a vintage-terminal feel, tuned for modern Zed UI.
 
 Source / inspiration:
+
 - darkearth.nvim (Neovim): https://github.com/ptdewey/darkearth-nvim
 
 Preview:
 <img width="1512" height="889" alt="Darkearth (Hybrid)" src="https://github.com/user-attachments/assets/5ae80649-35a1-44ed-be45-e3abeb62f6ec" />
+
 </details>
 
 <details>
@@ -72,10 +82,12 @@ Preview:
 High-contrast, neon-leaning theme based on the classic Cosmos palette, adapted for Zed blur and surfaces.
 
 Source / inspiration:
+
 - Cosmos (Zed): https://github.com/nauvalazhar/cosmos
 
 Preview:
 <img width="1512" height="887" alt="Cosmos (Hybrid)" src="https://github.com/user-attachments/assets/195383d5-5f5d-449d-af62-d9a1d0f79ef3" />
+
 </details>
 
 <details>
@@ -84,6 +96,7 @@ Preview:
 An atmospheric, low-distraction theme with heavier blur usage and muted syntax emphasis.
 
 Source / inspiration:
+
 - miasma.nvim: https://github.com/xero/miasma.nvim
 
 Preview:
@@ -108,6 +121,14 @@ Preview:
 - Designed primarily for macOS, but should work on other platforms that support blur.
 - Syntax highlighting is customized beyond default Zed mappings.
 
+## Formatting themes
+
+To keep theme JSON files consistent, run the formatter:
+
+```bash
+go run scripts/format.go *.json
+```
+
 ## Credits
 
 - Evergarden / Everviolet (Neovim): https://github.com/everviolet/nvim
@@ -127,6 +148,7 @@ Feel free to open issues or discussions if you have suggestions, improvements, o
 This project is intentionally opinionated, but constructive feedback about readability, contrast, accessibility, or Zed-specific behavior is always welcome.
 
 If you notice:
+
 - incorrect or missing syntax mappings
 - inconsistent blur or surface behavior
 - UI elements that feel out of place in Zed
@@ -135,6 +157,7 @@ If you notice:
 please report them.
 
 Pull requests are also welcome, especially for:
+
 - additional theme variants
 - improved syntax coverage
 - better alignment with upstream Neovim color schemes
