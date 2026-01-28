@@ -18,170 +18,9 @@ const schemaURL = "https://zed.dev/schema/themes/v0.2.0.json"
 const (
 	todoValue        = "TODO"
 	transparentColor = "#00000000"
+	selectionAlpha   = "4D"
+	wipSuffix        = " (WIP)"
 )
-
-type roleMapping struct {
-	key  string
-	role string
-}
-
-type alphaSpec struct {
-	alphaKey string
-	styleKey string
-	base     func(p Palette) string
-	force    bool
-}
-
-var defaultRoleMappings = []roleMapping{
-	{"background", "surface"},
-	{"surface.background", "surface"},
-	{"elevated_surface.background", "surface"},
-	{"panel.overlay_background", "surface"},
-	{"editor.background", "surface"},
-	{"editor.gutter.background", "surface"},
-	{"editor.subheader.background", "surface"},
-	{"editor.active_line.background", "overlay"},
-	{"editor.highlighted_line.background", "overlay"},
-	{"editor.foreground", "text"},
-	{"editor.line_number", "muted"},
-	{"editor.active_line_number", "foam"},
-	{"editor.invisible", "muted"},
-	{"editor.indent_guide", "muted"},
-	{"editor.indent_guide_active", "subtle"},
-	{"editor.wrap_guide", "muted"},
-	{"editor.active_wrap_guide", "muted"},
-	{"editor.document_highlight.read_background", "foam"},
-	{"editor.document_highlight.write_background", "muted"},
-	{"editor.document_highlight.bracket_background", "iris"},
-	{"editor.debugger_active_line.background", "rose"},
-	{"drop_target.background", "text"},
-	{"text", "text"},
-	{"text.muted", "muted"},
-	{"text.placeholder", "muted"},
-	{"text.disabled", "subtle"},
-	{"text.accent", "foam"},
-	{"link_text.hover", "foam"},
-	{"icon", "text"},
-	{"icon.muted", "muted"},
-	{"icon.placeholder", "muted"},
-	{"icon.disabled", "subtle"},
-	{"icon.accent", "foam"},
-	{"border.variant", "foam"},
-	{"border.focused", "foam"},
-	{"border.selected", "iris"},
-	{"border.disabled", "muted"},
-	{"tab.active_background", "surface"},
-	{"tab.active_foreground", "text"},
-	{"tab.inactive_foreground", "muted"},
-	{"status_bar.background", "surface"},
-	{"title_bar.background", "surface"},
-	{"title_bar.inactive_background", "surface"},
-	{"status_bar.foreground", "text"},
-	{"title_bar.foreground", "text"},
-	{"element.active", "highlight_med"},
-	{"element.selected", "highlight_med"},
-	{"element.hover", "highlight_low"},
-	{"element.disabled", "surface"},
-	{"element.background", "surface"},
-	{"ghost_element.active", "highlight_high"},
-	{"ghost_element.selected", "highlight_high"},
-	{"ghost_element.hover", "highlight_low"},
-	{"ghost_element.disabled", "surface"},
-	{"ghost_element.background", "surface"},
-	{"minimap.thumb.background", "foam"},
-	{"minimap.thumb.hover_background", "foam"},
-	{"minimap.thumb.active_background", "foam"},
-	{"pane.focused_border", "muted"},
-	{"pane_group.border", "muted"},
-	{"panel.focused_border", "muted"},
-	{"panel.indent_guide", "muted"},
-	{"panel.indent_guide_active", "subtle"},
-	{"panel.indent_guide_hover", "foam"},
-	{"scrollbar.thumb.background", "muted"},
-	{"scrollbar.thumb.hover_background", "muted"},
-	{"scrollbar.track.background", "surface"},
-	{"scrollbar.track.border", "text"},
-	{"search.match_background", "foam"},
-	{"search.active_match_background", "rose"},
-}
-
-var defaultConstMappings = map[string]string{
-	"border":                  transparentColor,
-	"border.transparent":      transparentColor,
-	"tab.inactive_background": transparentColor,
-	"tab_bar.background":      transparentColor,
-}
-
-func roleOf(p Palette, name string) string {
-	return stripAlpha(p.Roles[name])
-}
-
-func semanticOf(p Palette, name string) string {
-	return semanticColor(p, name)
-}
-
-func terminalBaseOf(p Palette, key string) string {
-	if p.Terminal == nil {
-		return ""
-	}
-	if v, ok := p.Terminal[key]; ok {
-		return stripAlpha(v)
-	}
-	return ""
-}
-
-var defaultAlphaSpecs = []alphaSpec{
-	{"ui", "background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"ui", "status_bar.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"ui", "title_bar.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"ui_inactive", "title_bar.inactive_background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"surface", "surface.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"elevated", "elevated_surface.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"overlay", "panel.overlay_background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"subheader", "editor.subheader.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"active_line", "editor.active_line.background", func(p Palette) string { return roleOf(p, "overlay") }, false},
-	{"highlighted_line", "editor.highlighted_line.background", func(p Palette) string { return roleOf(p, "overlay") }, false},
-	{"element_active", "element.active", func(p Palette) string { return roleOf(p, "highlight_med") }, false},
-	{"element_selected", "element.selected", func(p Palette) string { return roleOf(p, "highlight_med") }, false},
-	{"element_hover", "element.hover", func(p Palette) string { return roleOf(p, "highlight_low") }, false},
-	{"element_disabled", "element.disabled", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"ghost_active", "ghost_element.active", func(p Palette) string { return roleOf(p, "highlight_high") }, false},
-	{"ghost_selected", "ghost_element.selected", func(p Palette) string { return roleOf(p, "highlight_high") }, false},
-	{"ghost_hover", "ghost_element.hover", func(p Palette) string { return roleOf(p, "highlight_low") }, false},
-	{"ghost_disabled", "ghost_element.disabled", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"border_variant", "border.variant", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"border_focused", "border.focused", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"border_selected", "border.selected", func(p Palette) string { return roleOf(p, "iris") }, false},
-	{"border_disabled", "border.disabled", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"tab_active", "tab.active_background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"conflict_marker", "version_control.conflict_marker.ours", func(p Palette) string { return semanticOf(p, "warning") }, false},
-	{"conflict_marker", "version_control.conflict_marker.theirs", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"panel_focus_border", "panel.focused_border", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"panel_indent_guide", "panel.indent_guide", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"panel_indent_guide_active", "panel.indent_guide_active", func(p Palette) string { return roleOf(p, "subtle") }, false},
-	{"pane_focus_border", "pane.focused_border", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"pane_group_border", "pane_group.border", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"scrollbar_thumb", "scrollbar.thumb.background", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"scrollbar_thumb_hover", "scrollbar.thumb.hover_background", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"scrollbar_track", "scrollbar.track.background", func(p Palette) string { return roleOf(p, "surface") }, false},
-	{"scrollbar_track_border", "scrollbar.track.border", func(p Palette) string { return roleOf(p, "text") }, false},
-	{"search_match", "search.match_background", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"search_active", "search.active_match_background", func(p Palette) string { return roleOf(p, "rose") }, false},
-	{"debugger_line", "editor.debugger_active_line.background", func(p Palette) string { return roleOf(p, "rose") }, false},
-	{"indent_guide", "editor.indent_guide", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"indent_guide_active", "editor.indent_guide_active", func(p Palette) string { return roleOf(p, "subtle") }, false},
-	{"wrap_guide", "editor.wrap_guide", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"active_wrap_guide", "editor.active_wrap_guide", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"doc_highlight_read", "editor.document_highlight.read_background", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"doc_highlight_write", "editor.document_highlight.write_background", func(p Palette) string { return roleOf(p, "muted") }, false},
-	{"doc_highlight_bracket", "editor.document_highlight.bracket_background", func(p Palette) string { return roleOf(p, "iris") }, false},
-	{"drop_target", "drop_target.background", func(p Palette) string { return roleOf(p, "text") }, false},
-	{"minimap_bg", "minimap.thumb.background", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"minimap_hover", "minimap.thumb.hover_background", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"minimap_active", "minimap.thumb.active_background", func(p Palette) string { return roleOf(p, "foam") }, false},
-	{"terminal_background", "terminal.background", func(p Palette) string { return terminalBaseOf(p, "terminal.background") }, true},
-	{"terminal_ansi_background", "terminal.ansi.background", func(p Palette) string { return terminalBaseOf(p, "terminal.ansi.background") }, true},
-}
 
 type Palette struct {
 	Meta      Meta              `json:"meta"`
@@ -350,7 +189,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	mergeStringMap(style, p.Terminal)
 	applyTerminalDims(style)
-	applyAlphaSpecs(style, p, alpha)
+	applyAlphaRules(style, p, alpha)
 
 	applyDerivedVim(style, p)
 	applyDerivedPlayers(style, p, alpha)
@@ -381,12 +220,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 		}
 	}
 
-	setDefault(style, "panel.background", transparentColor)
-	setDefault(style, "toolbar.background", transparentColor)
-	setDefault(style, "tab_bar.background", transparentColor)
-	setDefault(style, "tab.inactive_background", transparentColor)
-	setDefault(style, "border", transparentColor)
-	setDefault(style, "border.transparent", transparentColor)
+	setDefaults(style, defaultTransparentKeys, transparentColor)
 
 	if prune && shouldPruneStyle(p.Style) {
 		for k := range style {
@@ -397,13 +231,6 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 	}
 
 	return style
-}
-
-func alphaFor(appearance string, cfg AlphaConfig, key string) string {
-	if v, ok := alphaValue(appearance, cfg, key); ok {
-		return v
-	}
-	return ""
 }
 
 func withAlpha(hex string, alpha string) string {
@@ -419,16 +246,6 @@ func stripAlpha(hex string) string {
 		return hex
 	}
 	return hex
-}
-
-func hasAlpha(hex string) bool {
-	h := strings.TrimPrefix(hex, "#")
-	return len(h) == 8
-}
-
-func isTodoValue(value any) bool {
-	s, ok := value.(string)
-	return ok && s == todoValue
 }
 
 func isUnset(style map[string]any, key string) bool {
@@ -454,12 +271,10 @@ func setDefault(style map[string]any, key, value string) {
 	style[key] = value
 }
 
-func writeJSON(path string, data any) error {
-	b, err := json.MarshalIndent(data, "", "  ")
-	if err != nil {
-		return err
+func setDefaults(style map[string]any, keys []string, value string) {
+	for _, key := range keys {
+		setDefault(style, key, value)
 	}
-	return os.WriteFile(path, b, 0o644)
 }
 
 func mergeStringMap(dst map[string]any, src map[string]string) {
@@ -470,18 +285,6 @@ func mergeStringMap(dst map[string]any, src map[string]string) {
 
 func mergeAny(dst map[string]any, src map[string]any) {
 	maps.Copy(dst, src)
-}
-
-func readJSONFile[T any](path string) (T, error) {
-	var out T
-	b, err := os.ReadFile(path)
-	if err != nil {
-		return out, err
-	}
-	if err := json.Unmarshal(b, &out); err != nil {
-		return out, err
-	}
-	return out, nil
 }
 
 func removeTODOs(style map[string]any) {
@@ -505,28 +308,38 @@ func alphaValue(appearance string, cfg AlphaConfig, key string) (string, bool) {
 	return "", false
 }
 
-func applyAlphaSpecs(style map[string]any, p Palette, alpha AlphaConfig) {
+func alphaBaseValue(p Palette, rule alphaRule) string {
+	switch rule.baseKind {
+	case alphaBaseRole:
+		return roleOpaque(p, rule.baseKey)
+	case alphaBaseSemantic:
+		return semanticOf(p, rule.baseKey)
+	case alphaBaseTerminal:
+		return terminalBaseOf(p, rule.baseKey)
+	default:
+		return ""
+	}
+}
+
+func applyAlphaRules(style map[string]any, p Palette, alpha AlphaConfig) {
 	appearance := p.Meta.Appearance
-	for _, spec := range alphaSpecs() {
-		alphaHex, ok := alphaValue(appearance, alpha, spec.alphaKey)
+	for _, rule := range alphaRules {
+		alphaHex, ok := alphaValue(appearance, alpha, rule.alphaKey)
 		if !ok {
 			continue
 		}
-		base := spec.base(p)
+		base := alphaBaseValue(p, rule)
 		if base == "" {
 			continue
 		}
-		if current, ok := style[spec.styleKey].(string); ok && current != "" && !isTodoValue(current) {
-			if !spec.force {
-				if hasAlpha(current) {
-					continue
-				}
-				if !strings.EqualFold(stripAlpha(current), stripAlpha(base)) {
+		for _, styleKey := range rule.styleKeys {
+			if current, ok := style[styleKey].(string); ok && current != "" && !isTodoValue(current) {
+				if !rule.force && !strings.EqualFold(stripAlpha(current), stripAlpha(base)) {
 					continue
 				}
 			}
+			style[styleKey] = withAlpha(base, alphaHex)
 		}
-		style[spec.styleKey] = withAlpha(base, alphaHex)
 	}
 }
 
@@ -534,10 +347,10 @@ func withWIPSuffix(name string) string {
 	if name == "" {
 		return name
 	}
-	if strings.HasSuffix(name, " (WIP)") {
+	if strings.HasSuffix(name, wipSuffix) {
 		return name
 	}
-	return name + " (WIP)"
+	return name + wipSuffix
 }
 
 func compareAndMaybeUpdatePalette(cfg Config, palette Palette, template map[string]any, alphaCfg AlphaConfig, generated map[string]any) error {
@@ -663,7 +476,7 @@ func applyRoleMappings(style map[string]any, p Palette) {
 		return
 	}
 
-	role := func(name string) string { return roleOf(p, name) }
+	role := func(name string) string { return roleValue(p, name) }
 
 	for _, mapping := range defaultRoleMappings {
 		setRole(style, mapping.key, role(mapping.role))
@@ -737,11 +550,12 @@ func setSemanticBackgrounds(style map[string]any, p Palette, alpha AlphaConfig, 
 		key   string
 		alpha string
 	}
+	semanticAlpha, _ := alphaValue(p.Meta.Appearance, alpha, "semantic_bg")
 	rules := []rule{
-		{"warning", alphaFor(p.Meta.Appearance, alpha, "semantic_bg")},
-		{"info", alphaFor(p.Meta.Appearance, alpha, "semantic_bg")},
-		{"success", alphaFor(p.Meta.Appearance, alpha, "semantic_bg")},
-		{"unreachable", alphaFor(p.Meta.Appearance, alpha, "semantic_bg")},
+		{"warning", semanticAlpha},
+		{"info", semanticAlpha},
+		{"success", semanticAlpha},
+		{"unreachable", semanticAlpha},
 		{"conflict", "26"},
 		{"created", "26"},
 		{"deleted", "26"},
@@ -818,7 +632,7 @@ func applyTerminalDims(style map[string]any) {
 }
 
 func applyDerivedVim(style map[string]any, p Palette) {
-	role := func(name string) string { return roleOf(p, name) }
+	role := func(name string) string { return roleValue(p, name) }
 	normal := firstNonEmpty(role("foam"), role("pine"))
 	insert := firstNonEmpty(role("rose"), role("gold"))
 	visual := firstNonEmpty(role("iris"), role("rose"))
@@ -851,9 +665,9 @@ func applyDerivedPlayers(style map[string]any, p Palette, alpha AlphaConfig) {
 	if len(p.Accents) == 0 {
 		return
 	}
-	alphaHex := alphaFor(p.Meta.Appearance, alpha, "selection")
-	if alphaHex == "" {
-		alphaHex = "4D"
+	alphaHex, ok := alphaValue(p.Meta.Appearance, alpha, "selection")
+	if !ok {
+		alphaHex = selectionAlpha
 	}
 	var players []map[string]string
 	for _, c := range p.Accents {
@@ -875,7 +689,7 @@ func applyDerivedSyntax(style map[string]any, p Palette) {
 	if len(p.Roles) == 0 {
 		return
 	}
-	role := func(name string) string { return roleOf(p, name) }
+	role := func(name string) string { return roleValue(p, name) }
 
 	syntax := map[string]any{
 		"text":            map[string]any{"color": role("text")},
@@ -961,10 +775,6 @@ func shouldPruneStyle(style map[string]any) bool {
 	return len(style) > 20
 }
 
-func alphaSpecs() []alphaSpec {
-	return defaultAlphaSpecs
-}
-
 func applyAlphaOverrides(palette *Palette, base AlphaConfig, reference map[string]any) {
 	appearance := strings.ToLower(palette.Meta.Appearance)
 	defaults := map[string]string{}
@@ -978,26 +788,26 @@ func applyAlphaOverrides(palette *Palette, base AlphaConfig, reference map[strin
 		}
 	}
 
-	specs := alphaSpecs()
-
 	overrides := map[string]string{}
-	for _, spec := range specs {
-		baseColor := spec.base(*palette)
+	for _, rule := range alphaRules {
+		baseColor := alphaBaseValue(*palette, rule)
 		if baseColor == "" {
 			continue
 		}
-		refValue, ok := reference[spec.styleKey].(string)
-		if !ok || refValue == "" {
-			continue
+		for _, styleKey := range rule.styleKeys {
+			refValue, ok := reference[styleKey].(string)
+			if !ok || refValue == "" {
+				continue
+			}
+			alpha, ok := themeutil.InferAlpha(refValue, baseColor)
+			if !ok {
+				continue
+			}
+			if def := defaults[rule.alphaKey]; def != "" && strings.EqualFold(def, alpha) {
+				continue
+			}
+			overrides[rule.alphaKey] = strings.ToUpper(alpha)
 		}
-		alpha, ok := themeutil.InferAlpha(refValue, baseColor)
-		if !ok {
-			continue
-		}
-		if def := defaults[spec.alphaKey]; def != "" && strings.EqualFold(def, alpha) {
-			continue
-		}
-		overrides[spec.alphaKey] = strings.ToUpper(alpha)
 	}
 
 	selectionAlpha := themeutil.InferSelectionAlpha(reference)
@@ -1042,18 +852,19 @@ func pruneAlphaOverrides(palette *Palette, template map[string]any, alphaCfg Alp
 }
 
 func alphaDerivedKeys() []string {
-	specs := alphaSpecs()
 	seen := map[string]struct{}{}
-	keys := make([]string, 0, len(specs))
-	for _, spec := range specs {
-		if spec.styleKey == "" {
-			continue
+	keys := make([]string, 0, len(alphaRules))
+	for _, rule := range alphaRules {
+		for _, styleKey := range rule.styleKeys {
+			if styleKey == "" {
+				continue
+			}
+			if _, ok := seen[styleKey]; ok {
+				continue
+			}
+			seen[styleKey] = struct{}{}
+			keys = append(keys, styleKey)
 		}
-		if _, ok := seen[spec.styleKey]; ok {
-			continue
-		}
-		seen[spec.styleKey] = struct{}{}
-		keys = append(keys, spec.styleKey)
 	}
 	return keys
 }

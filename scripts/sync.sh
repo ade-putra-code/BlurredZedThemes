@@ -20,5 +20,5 @@ if [[ ! -f "$reference" ]]; then
   exit 1
 fi
 
-go run scripts/generate/main.go --palette "$palette" --compare "$reference" --write-alpha --write-overrides --rewrite-overrides --prune-alpha-overrides
-go run scripts/generate/main.go --palette "$palette" --compare "$reference"
+go run ./scripts/generate --palette "$palette" --compare "$reference" --write-alpha --write-overrides --rewrite-overrides --prune-alpha-overrides
+go run ./scripts/generate --palette "$palette" --compare "$reference"

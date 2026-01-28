@@ -10,12 +10,12 @@ tasks:
     desc: Generate a single theme from a palette (PAL=palettes/<name>.json).
     cmds:
       - test -n "{{.PAL}}"
-      - go run scripts/generate/main.go --palette "{{.PAL}}"
+      - go run ./scripts/generate --palette "{{.PAL}}"
 
   gen-all:
     desc: Generate all themes into generated/themes.
     cmds:
-      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run scripts/generate/main.go --palette "$p"; fi; done
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run ./scripts/generate --palette "$p"; fi; done
       - go run scripts/format/main.go generated/themes/*.json
 
   sync:
@@ -39,10 +39,10 @@ tasks:
     desc: Generate non-WIP themes into ./themes for publishing.
     cmds:
       - mkdir -p themes
-      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run scripts/generate/main.go --palette "$p" --wip=false --out "themes/${base}.json"; fi; done
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ]; then go run ./scripts/generate --palette "$p" --wip=false --out "themes/${base}.json"; fi; done
       - go run scripts/format/main.go themes/*.json
 
   verify:
     desc: Verify generated themes match reference themes.
     cmds:
-      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ] && [ -f "themes/$base.json" ]; then go run scripts/generate/main.go --palette "$p" --compare "themes/$base.json"; fi; done
+      - for p in palettes/*.json; do base=$(basename "$p" .json); if [ "$base" != "alpha" ] && [ -f "themes/$base.json" ]; then go run ./scripts/generate --palette "$p" --compare "themes/$base.json"; fi; done
