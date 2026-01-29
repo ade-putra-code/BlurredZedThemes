@@ -1,0 +1,82 @@
+{
+  "accents": [
+    "#90B99F",
+    "#85B5BA",
+    "#92A2D5",
+    "#ACA1CF",
+    "#E6B99D",
+    "#F5A191",
+    "#EA83A5",
+    "#E29ECA",
+    "#B4B1BA",
+    "#C9C7CD"
+  ],
+  "alpha": {
+    "dark": {},
+    "light": {}
+  },
+  "colors": null,
+  "meta": {
+    "appearance": "dark",
+    "author": "gox160x  (oldworld.nvim) (Hybrid/Blurred refit by SergoGansta777)",
+    "background_appearance": "blurred",
+    "name": "Old World",
+    "theme_name": "Old World (Hybrid)"
+  },
+  "roles": {
+    "base": "#131314",
+    "foam": "#85B5BA",
+    "gold": "#E6B99D",
+    "highlight_high": "#3B3B3E",
+    "highlight_low": "#2A2A2C",
+    "highlight_med": "#313134",
+    "iris": "#ACA1CF",
+    "love": "#EA83A5",
+    "muted": "#9F9CA6",
+    "overlay": "#27272A",
+    "pine": "#90B99F",
+    "rose": "#F5A191",
+    "subtle": "#8B8693",
+    "surface": "#161617",
+    "text": "#C9C7CD"
+  },
+  "semantic": {
+    "conflict": "#F5A191",
+    "created": "#90B99F",
+    "deleted": "#EA83A5",
+    "error": "#EA83A5",
+    "hidden": "#6C6874",
+    "hint": "#8B8693",
+    "ignored": "#6C6874",
+    "info": "#85B5BA",
+    "modified": "#E6B99D",
+    "predictive": "#9F9CA6",
+    "renamed": "#ACA1CF",
+    "success": "#90B99F",
+    "unreachable": "#EA83A5",
+    "warning": "#E6B99D"
+  },
+  "terminal": {
+    "terminal.ansi.background": "#161617",
+    "terminal.ansi.black": "#27272A",
+    "terminal.ansi.blue": "#92A2D5",
+    "terminal.ansi.bright_black": "#3B3B3E",
+    "terminal.ansi.bright_blue": "#ACA1CF",
+    "terminal.ansi.bright_cyan": "#85B5BA",
+    "terminal.ansi.bright_green": "#90B99F",
+    "terminal.ansi.bright_magenta": "#E29ECA",
+    "terminal.ansi.bright_red": "#F5A191",
+    "terminal.ansi.bright_white": "#C9C7CD",
+    "terminal.ansi.bright_yellow": "#F5A191",
+    "terminal.ansi.cyan": "#85B5BA",
+    "terminal.ansi.green": "#90B99F",
+    "terminal.ansi.magenta": "#E29ECA",
+    "terminal.ansi.red": "#EA83A5",
+    "terminal.ansi.white": "#9F9CA6",
+    "terminal.ansi.yellow": "#E6B99D",
+    "terminal.background": "#161617",
+    "terminal.bright_foreground": "#C9C7CD",
+    "terminal.dim_foreground": "#9F9CA6",
+    "terminal.foreground": "#B4B1BA"
+  }
+}
