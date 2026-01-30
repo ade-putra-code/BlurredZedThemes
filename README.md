@@ -1,7 +1,5 @@
 <p align="center">
   <img alt="Blurred Zed Themes" src="https://img.shields.io/badge/Blurred%20Zed%20Themes-curated%20hybrid%20collection-111827?style=for-the-badge" />
-  <img alt="Themes" src="https://img.shields.io/badge/themes-12-4C9AFF?style=flat-square" />
-  <img alt="Status" src="https://img.shields.io/badge/status-maintained-30D158?style=flat-square" />
 </p>
 
 <p align="center">
@@ -9,113 +7,23 @@
   clean contrast, and consistent syntax colors.
 </p>
 
-## Design goals
+<p align="center">
+  <img alt="Themes" src="https://img.shields.io/badge/themes-17-4C9AFF?style=flat-square" />
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/SergoGansta777/BlurredZedThemes?style=flat-square" />
+  <img alt="License" src="https://img.shields.io/github/license/SergoGansta777/BlurredZedThemes?style=flat-square" />
+  <img alt="Status" src="https://img.shields.io/badge/status-maintained-30D158?style=flat-square" />
+</p>
 
-- Blurred UI surfaces with stable editor backgrounds (or some little experiments).
-- Carefully tuned alpha values for panels, overlays, tabs, and status bars.
-- Consistent syntax mapping across all themes.
+## Overview
 
-## Theme gallery
+These themes are built around Zed’s blurred UI. The editor stays sharp, the chrome stays soft, and the whole layout keeps good contrast without feeling noisy.
 
-<details>
-<summary><strong>Evergarden Winter Green (Hybrid)</strong></summary>
+- Stable editor backgrounds with transparent UI layers around them.
+- Balanced alpha values for panels, overlays, tabs, and status bars.
+- Consistent syntax mapping across all themes and variants.
+- Two variants per theme: Blur and Hybrid.
 
-Based on Evergarden / Everviolet (Neovim).
-
-Source / inspiration:
-
-- Evergarden (Everviolet): https://github.com/everviolet/nvim
-
-Preview:
-<img width="1941" height="1099" alt="Evergarden Winter Green (Hybrid)" src="https://github.com/user-attachments/assets/a551c81f-73b1-4aec-a0f8-476ff8aefbac" />
-
-</details>
-
-<details>
-<summary><strong>Rosé Pine Dawn (Hybrid)</strong></summary>
-
-Inspired by Rosé Pine Dawn (Zed) with a consistent blurred UI and stable editor background.
-
-Source / inspiration:
-
-- Rosé Pine (Zed): https://github.com/rose-pine/zed
-
-Preview:
-<img width="1878" height="1090" alt="Rosé Pine Dawn (Hybrid)" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />
-
-</details>
-
-<details>
-<summary><strong>Nordic (Hybrid)</strong></summary>
-
-A cool, desaturated theme with clean separation between UI surfaces and editor content. Based on nvim theme.
-
-Source / inspiration:
-
-- Nordic.nvim (Neovim): https://github.com/AlexvZyl/nordic.nvim
-
-Preview:
-<img width="1509" height="887" alt="Nordic (Hybrid)" src="https://github.com/user-attachments/assets/be112f4e-6176-411a-92bf-d7659a2838d7" />
-
-</details>
-
-<details>
-<summary><strong>Lunar (Hybrid)</strong></summary>
-
-A Zed reinterpretation of LunarVim’s colorscheme and blurred/borderless Zed UI.
-
-Source / inspiration:
-
-- LunarVim Colorschemes: https://github.com/LunarVim/Colorschemes
-
-Preview:
-<img width="1504" height="882" alt="Lunar (Hybrid)" src="https://github.com/user-attachments/assets/a0e76368-8ffb-4d9b-ad9d-99bccc3884d3" />
-
-</details>
-
-<details>
-<summary><strong>Darkearth (Hybrid)</strong></summary>
-
-Earth tones and low saturation with a vintage-terminal feel, tuned for modern Zed UI.
-
-Source / inspiration:
-
-- darkearth.nvim (Neovim): https://github.com/ptdewey/darkearth-nvim
-
-Preview:
-<img width="1512" height="889" alt="Darkearth (Hybrid)" src="https://github.com/user-attachments/assets/5ae80649-35a1-44ed-be45-e3abeb62f6ec" />
-
-</details>
-
-<details>
-<summary><strong>Cosmos (Hybrid)</strong></summary>
-
-High-contrast, neon-leaning theme based on the classic Cosmos palette, adapted for Zed blur and surfaces.
-
-Source / inspiration:
-
-- Cosmos (Zed): https://github.com/nauvalazhar/cosmos
-
-Preview:
-<img width="1512" height="887" alt="Cosmos (Hybrid)" src="https://github.com/user-attachments/assets/195383d5-5f5d-449d-af62-d9a1d0f79ef3" />
-
-</details>
-
-<details>
-<summary><strong>Miasma Fog (Hybrid)</strong></summary>
-
-An atmospheric, low-distraction theme with heavier blur usage and muted syntax emphasis.
-
-Source / inspiration:
-
-- miasma.nvim: https://github.com/xero/miasma.nvim
-
-Preview:
-<img width="1510" height="894" alt="2026-01-27_20-03-52" src="https://github.com/user-attachments/assets/c0308e82-e801-418b-9f1b-c2f2692031d0" />
-
-</details>
-
-## Quick start
+## Install
 
 ```bash
 mkdir -p ~/.config/zed/themes
@@ -124,11 +32,49 @@ cp themes/*.json ~/.config/zed/themes/
 
 Then restart Zed (or reload themes) and select a theme in Settings → Theme.
 
-## Notes
+## Requirements
 
 - These themes rely on Zed’s `"background.appearance": "blurred"` setting.
 - Designed primarily for macOS, but should work on other platforms that support blur.
-- Syntax highlighting is customized beyond default Zed mappings.
+
+## Recommended settings
+
+These settings match the screenshots and keep the layout clean:
+
+```json
+{
+  "current_line_highlight": "none", // By your preference
+  "project_panel": {
+    "sticky_scroll": false // Not fully supported yet
+  },
+  "sticky_scroll": {
+    "enabled": true // By your preference
+  }
+}
+```
+
+## Naming
+
+- Blur: stronger blur and softer UI surfaces.
+- Hybrid: crisper panels with clearer separation while keeping blur in the UI layers.
+
+## Theme gallery
+
+Grouped by theme family. Previews are added as they become available.
+
+| Theme group    | Preview                                                                                                                                                                                             | Source / inspiration                                          |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Evergarden     | Winter:<br><img width="320" alt="Evergarden Winter (Hybrid)" src="https://github.com/user-attachments/assets/a551c81f-73b1-4aec-a0f8-476ff8aefbac" /><br>Spring: TODO<br>Summer: TODO<br>Fall: TODO | https://github.com/everviolet/nvim                            |
+| JetBrains      | Dark: TODO<br>Light: TODO                                                                                                                                                                           | https://github.com/zed-industries/zed/tree/main/assets/themes |
+| Kanagawa       | Dragon: TODO<br>Paper: TODO                                                                                                                                                                         | https://github.com/rebelot/kanagawa.nvim                      |
+| Cosmos         | <img width="320" alt="Cosmos (Hybrid)" src="https://github.com/user-attachments/assets/195383d5-5f5d-449d-af62-d9a1d0f79ef3" />                                                                     | https://github.com/nauvalazhar/cosmos                         |
+| Darkearth      | <img width="320" alt="Darkearth (Hybrid)" src="https://github.com/user-attachments/assets/5ae80649-35a1-44ed-be45-e3abeb62f6ec" />                                                                  | https://github.com/ptdewey/darkearth-nvim                     |
+| Everforest     | TODO                                                                                                                                                                                                | https://github.com/sainnhe/everforest                         |
+| Lunar          | <img width="320" alt="Lunar (Hybrid)" src="https://github.com/user-attachments/assets/a0e76368-8ffb-4d9b-ad9d-99bccc3884d3" />                                                                      | https://github.com/LunarVim/Colorschemes                      |
+| Miasma Fog     | <img width="320" alt="Miasma Fog (Hybrid)" src="https://github.com/user-attachments/assets/c0308e82-e801-418b-9f1b-c2f2692031d0" />                                                                 | https://github.com/xero/miasma.nvim                           |
+| Nordic         | <img width="320" alt="Nordic (Hybrid)" src="https://github.com/user-attachments/assets/be112f4e-6176-411a-92bf-d7659a2838d7" />                                                                     | https://github.com/AlexvZyl/nordic.nvim                       |
+| Oldworld       | TODO                                                                                                                                                                                                | https://github.com/nyoom-engineering/oldworld.nvim            |
+| Rosé Pine Dawn | <img width="320" alt="Rosé Pine Dawn (Hybrid)" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />                                                             | https://github.com/rose-pine/zed                              |
 
 ## Customization
 
@@ -142,11 +88,7 @@ All common workflows are wrapped in `Taskfile.yml`:
 
 ```bash
 task gen-all
-task sync THEME=evergarden-winter-hybrid
-task sync-all
-task extract THEME=evergarden-winter-hybrid
 task publish
-task verify
 ```
 
 Notes:
@@ -157,22 +99,11 @@ Notes:
 - The generator fills missing fields with `TODO` placeholders and applies safe defaults.
 - Published/reference themes live in `themes/`.
 
-<details>
-<summary><strong>Credits</strong></summary>
-
-- Evergarden / Everviolet (Neovim): https://github.com/everviolet/nvim
-- Rosé Pine (Zed): https://github.com/rose-pine/zed
-- Nordic.nvim (Neovim): https://github.com/AlexvZyl/nordic.nvim
-- LunarVim Colorschemes: https://github.com/LunarVim/Colorschemes
-- darkearth.nvim (Neovim): https://github.com/ptdewey/darkearth-nvim
-- miasma.nvim (Neovim): https://github.com/xero/miasma.nvim
-- Cosmos (Zed): https://github.com/nauvalazhar/cosmos
-- Catppuccin (Zed): https://github.com/catppuccin/zed
-- Zed Editor: https://zed.dev
-
-</details>
-
 ## Contributing
 
 - Open issues for visual inconsistencies, contrast/accessibility concerns, or missing mappings.
 - PRs are welcome for new variants, improved syntax coverage, or closer alignment with upstream palettes.
+
+## License
+
+Licensed under the Apache License, Version 2.0. See `LICENSE`.
