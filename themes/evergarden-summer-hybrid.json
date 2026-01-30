@@ -286,22 +286,22 @@
         "editor.subheader.background": "#F5F1EBF2",
         "editor.wrap_guide": "#45535533",
 
-        "element.active": "#C2C6B38C",
+        "element.active": "#C2C6B3E6",
         "element.background": "#F5F1EB",
         "element.disabled": "#F5F1EB66",
         "element.hover": "#EDEAD8CC",
-        "element.selected": "#C2C6B3B3",
+        "element.selected": "#C2C6B3D9",
 
         "elevated_surface.background": "#F5F1EBFF",
 
         "error.background": "#F5F1EB",
         "error.border": "#B86466",
 
-        "ghost_element.active": "#829084CC",
+        "ghost_element.active": "#829084E6",
         "ghost_element.background": "#F5F1EB",
         "ghost_element.disabled": "#F5F1EB66",
         "ghost_element.hover": "#EDEAD8CC",
-        "ghost_element.selected": "#829084B3",
+        "ghost_element.selected": "#829084D9",
 
         "hidden.background": "#F5F1EB",
         "hidden.border": "#707D76",

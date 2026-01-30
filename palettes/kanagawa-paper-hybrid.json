@@ -12,16 +12,17 @@
   "alpha": {
     "dark": {
       "active_line": "0D",
-      "element_active": "26",
-      "element_hover": "33",
-      "element_selected": "40",
-      "ghost_active": "26",
-      "ghost_hover": "33",
-      "ghost_selected": "40",
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80",
       "selection": "33",
       "subheader": "CC"
     },
-    "light": {}
+    "light": {
+    }
   },
   "colors": null,
   "meta": {
@@ -30,6 +31,23 @@
     "background_appearance": "blurred",
     "name": "Kanagawa Paper",
     "theme_name": "Kanagawa Paper (Hybrid)"
+  },
+  "overrides": {
+    "created.background": "#262B2F",
+
+    "deleted.background": "#30282F",
+
+    "error.background": "#2C262E",
+
+    "hint.background": "#282A31",
+
+    "info.background": "#252731",
+
+    "modified.background": "#302E32",
+
+    "success.background": "#25282D",
+
+    "warning.background": "#2C2B30"
   },
   "roles": {
     "base": "#181820",
@@ -63,16 +81,6 @@
     "success": "#699469",
     "unreachable": "#C4746E",
     "warning": "#C4B28A"
-  },
-  "overrides": {
-    "created.background": "#262B2F",
-    "deleted.background": "#30282F",
-    "modified.background": "#302E32",
-    "info.background": "#252731",
-    "warning.background": "#2C2B30",
-    "error.background": "#2C262E",
-    "success.background": "#25282D",
-    "hint.background": "#282A31"
   },
   "style": {
     "syntax": {

@@ -13,9 +13,15 @@
   ],
   "alpha": {
     "dark": {
-      "element_hover": "CC"
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80"
     },
-    "light": {}
+    "light": {
+    }
   },
   "colors": null,
   "meta": {
@@ -179,9 +185,11 @@
       "variant": {
         "color": "#F57F82"
       },
+
       "character.special": {
         "color": "#F6CEE5"
       },
+
       "comment.doc": {
         "color": "#839E9A",
         "font_style": "italic"
@@ -218,12 +226,14 @@
         "color": "#F5D098",
         "font_style": "italic"
       },
+
       "constant.builtin": {
         "color": "#F3C0E5"
       },
       "constant.macro": {
         "color": "#D2BDF3"
       },
+
       "diff.delta": {
         "color": "#B3E3CA"
       },
@@ -233,10 +243,12 @@
       "diff.plus": {
         "color": "#CBE3B3"
       },
+
       "emphasis.strong": {
         "color": "#F3C0E5",
         "font_weight": 700
       },
+
       "function.builtin": {
         "color": "#CBE3B3"
       },
@@ -255,6 +267,7 @@
       "function.method.call": {
         "color": "#CBE3B3"
       },
+
       "keyword.conditional": {
         "color": "#F57F82"
       },
@@ -300,9 +313,11 @@
       "keyword.type": {
         "color": "#F57F82"
       },
+
       "number.float": {
         "color": "#F3C0E5"
       },
+
       "punctuation.bracket": {
         "color": "#96B4AA"
       },
@@ -319,6 +334,7 @@
       "punctuation.special.symbol": {
         "color": "#D2BDF3"
       },
+
       "string.doc": {
         "color": "#B3E3CA",
         "font_style": "italic"
@@ -349,6 +365,7 @@
         "color": "#AFD9E6",
         "font_style": "italic"
       },
+
       "tag.attribute": {
         "color": "#B3E6DB"
       },
@@ -358,9 +375,11 @@
       "tag.doctype": {
         "color": "#F57F82"
       },
+
       "text.literal": {
         "color": "#DBE6AF"
       },
+
       "type.builtin": {
         "color": "#F5D098",
         "font_style": "italic"
@@ -380,6 +399,7 @@
         "color": "#F5D098",
         "font_style": "italic"
       },
+
       "variable.builtin": {
         "color": "#F57F82"
       },

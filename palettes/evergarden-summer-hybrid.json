@@ -12,8 +12,15 @@
     "#9B87AD"
   ],
   "alpha": {
-    "dark": {},
+    "dark": {
+    },
     "light": {
+      "element_active": "E6",
+      "element_hover": "CC",
+      "element_selected": "D9",
+      "ghost_active": "E6",
+      "ghost_hover": "CC",
+      "ghost_selected": "D9",
       "overlay": "CC",
       "selection": "22",
       "surface": "CC",
@@ -186,9 +193,11 @@
       "variant": {
         "color": "#B86466"
       },
+
       "character.special": {
         "color": "#C29FB2"
       },
+
       "comment.doc": {
         "color": "#707D76",
         "font_style": "italic"

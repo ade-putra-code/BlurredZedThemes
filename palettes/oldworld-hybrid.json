@@ -12,8 +12,16 @@
     "#C9C7CD"
   ],
   "alpha": {
-    "dark": {},
-    "light": {}
+    "dark": {
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80"
+    },
+    "light": {
+    }
   },
   "colors": null,
   "meta": {

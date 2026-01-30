@@ -631,22 +631,22 @@
         "editor.subheader.background": "#FFFAF3F2",
         "editor.wrap_guide": "#6E6A8633",
 
-        "element.active": "#D9D4DF8C",
+        "element.active": "#CECACDFE",
         "element.background": "#fffaf3",
         "element.disabled": "#FFFAF366",
-        "element.hover": "#F4EDE8CC",
-        "element.selected": "#D9D4DFB3",
+        "element.hover": "#F4EDE8F2",
+        "element.selected": "#CECACDF8",
 
         "elevated_surface.background": "#FFFAF3FF",
 
         "error.background": "#fffaf3",
         "error.border": "#b4637a",
 
-        "ghost_element.active": "#CECACDCC",
+        "ghost_element.active": "#F2E9E1FE",
         "ghost_element.background": "#fffaf3",
         "ghost_element.disabled": "#FFFAF366",
-        "ghost_element.hover": "#F4EDE8CC",
-        "ghost_element.selected": "#CECACDB3",
+        "ghost_element.hover": "#F4EDE8F2",
+        "ghost_element.selected": "#F2E9E1F8",
 
         "hidden.background": "#fffaf3",
         "hidden.border": "#9893a5",

@@ -469,7 +469,7 @@
         "element.active": "#3C484166",
         "element.background": "#272E33",
         "element.disabled": "#272E3340",
-        "element.hover": "#374145CC",
+        "element.hover": "#37414566",
         "element.selected": "#3C484180",
 
         "elevated_surface.background": "#272E33F2",
@@ -477,11 +477,11 @@
         "error.background": "#272E33",
         "error.border": "#E67E80",
 
-        "ghost_element.active": "#A7C08040",
+        "ghost_element.active": "#A7C08066",
         "ghost_element.background": "#272E33",
         "ghost_element.disabled": "#272E3340",
         "ghost_element.hover": "#37414566",
-        "ghost_element.selected": "#A7C08066",
+        "ghost_element.selected": "#A7C08080",
 
         "hidden.background": "#272E33",
         "hidden.border": "#7A8478",

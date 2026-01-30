@@ -15,10 +15,16 @@
     "dark": {
       "active_line": "66",
       "border_selected": "AA",
-      "element_hover": "CC",
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80",
       "highlighted_line": "33"
     },
-    "light": {}
+    "light": {
+    }
   },
   "colors": null,
   "meta": {
@@ -30,6 +36,7 @@
   },
   "overrides": {
     "editor.active_line.background": "#292e4266",
+
     "version_control.added": "#266d6a",
     "version_control.deleted": "#b2555b",
     "version_control.modified": "#536c9e",
@@ -167,9 +174,11 @@
       "variable": {
         "color": "#c0caf5"
       },
+
       "character.special": {
         "color": "#2ac3de"
       },
+
       "comment.doc": {
         "color": "#565f89",
         "font_style": "italic"
@@ -190,12 +199,14 @@
         "color": "#e0af68",
         "font_style": "italic"
       },
+
       "constant.builtin": {
         "color": "#ff9e64"
       },
       "constant.macro": {
         "color": "#9d7cd8"
       },
+
       "diff.delta": {
         "color": "#6183bb"
       },
@@ -205,10 +216,12 @@
       "diff.plus": {
         "color": "#9ece6a"
       },
+
       "emphasis.strong": {
         "color": "#bb9af7",
         "font_weight": 700
       },
+
       "function.builtin": {
         "color": "#2ac3de"
       },
@@ -227,6 +240,7 @@
       "function.method.call": {
         "color": "#7dcfff"
       },
+
       "keyword.conditional": {
         "color": "#bb9af7"
       },
@@ -254,9 +268,11 @@
       "keyword.type": {
         "color": "#9d7cd8"
       },
+
       "number.float": {
         "color": "#ff9e64"
       },
+
       "punctuation.bracket": {
         "color": "#a9b1d6"
       },
@@ -270,6 +286,7 @@
       "punctuation.special": {
         "color": "#89ddff"
       },
+
       "string.escape": {
         "color": "#2ac3de"
       },
@@ -286,15 +303,18 @@
         "color": "#7dcfff",
         "font_style": "italic"
       },
+
       "tag.attribute": {
         "color": "#bb9af7"
       },
       "tag.delimiter": {
         "color": "#a9b1d6"
       },
+
       "text.literal": {
         "color": "#9ece6a"
       },
+
       "type.builtin": {
         "color": "#2ac3de",
         "font_style": "italic"
@@ -310,6 +330,7 @@
         "color": "#2ac3de",
         "font_style": "italic"
       },
+
       "variable.builtin": {
         "color": "#f7768e"
       },

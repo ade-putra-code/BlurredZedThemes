@@ -191,6 +191,12 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 	applyTerminalDims(style)
 	applyAlphaRules(style, p, alpha)
 
+	if v, ok := style["element.active"].(string); ok && v != "" {
+		if isUnset(style, "tab.active_background") {
+			style["tab.active_background"] = v
+		}
+	}
+
 	applyDerivedVim(style, p)
 	applyDerivedPlayers(style, p, alpha)
 	applyDerivedSyntax(style, p)
@@ -441,6 +447,7 @@ func readThemeStyle(path string) (map[string]any, error) {
 
 func diffStyle(reference, generated map[string]any) ([]string, []string, []string) {
 	var missing, extra, diffs []string
+
 	for k := range reference {
 		if _, ok := generated[k]; !ok {
 			missing = append(missing, k)

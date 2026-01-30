@@ -12,12 +12,12 @@
   "alpha": {
     "dark": {
       "active_line": "0D",
-      "element_active": "26",
-      "element_hover": "33",
-      "element_selected": "40",
-      "ghost_active": "26",
-      "ghost_hover": "33",
-      "ghost_selected": "40",
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80",
       "selection": "33",
       "subheader": "CC"
     },

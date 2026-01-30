@@ -13,14 +13,16 @@
   ],
   "alpha": {
     "dark": {
-      "element_active": "80",
-      "element_hover": "99",
-      "element_selected": "B3",
-      "ghost_active": "99",
-      "ghost_selected": "CC",
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80",
       "selection": "33"
     },
-    "light": {}
+    "light": {
+    }
   },
   "colors": null,
   "meta": {
@@ -184,9 +186,11 @@
       "variant": {
         "color": "#F7768E"
       },
+
       "character.special": {
         "color": "#BB9AF7"
       },
+
       "comment.doc": {
         "color": "#51597D",
         "font_style": "italic"
@@ -223,12 +227,14 @@
         "color": "#FF9E64",
         "font_style": "italic"
       },
+
       "constant.builtin": {
         "color": "#FF9E64"
       },
       "constant.macro": {
         "color": "#BB9AF7"
       },
+
       "diff.delta": {
         "color": "#E0AF68"
       },
@@ -238,10 +244,12 @@
       "diff.plus": {
         "color": "#9ECE6A"
       },
+
       "emphasis.strong": {
         "color": "#C0CAF5",
         "font_weight": 700
       },
+
       "function.builtin": {
         "color": "#E0AF68"
       },
@@ -260,6 +268,7 @@
       "function.method.call": {
         "color": "#7AA2F7"
       },
+
       "keyword.conditional": {
         "color": "#BB9AF7"
       },
@@ -305,9 +314,11 @@
       "keyword.type": {
         "color": "#BB9AF7"
       },
+
       "number.float": {
         "color": "#FF9E64"
       },
+
       "punctuation.bracket": {
         "color": "#89DDFF"
       },
@@ -325,6 +336,7 @@
         "color": "#BB9AF7",
         "font_weight": 800
       },
+
       "string.doc": {
         "color": "#0DB9D7",
         "font_style": "italic"
@@ -355,6 +367,7 @@
         "color": "#7DCFFF",
         "font_style": "italic"
       },
+
       "tag.attribute": {
         "color": "#73DACA",
         "font_style": "italic"
@@ -365,9 +378,11 @@
       "tag.doctype": {
         "color": "#BB9AF7"
       },
+
       "text.literal": {
         "color": "#9ECE6A"
       },
+
       "type.builtin": {
         "color": "#0DB9D7",
         "font_style": "italic"
@@ -387,6 +402,7 @@
         "color": "#0DB9D7",
         "font_style": "italic"
       },
+
       "variable.builtin": {
         "color": "#F7768E"
       },

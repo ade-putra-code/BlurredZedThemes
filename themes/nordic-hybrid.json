@@ -299,7 +299,7 @@
         "element.active": "#3B425266",
         "element.background": "#242933",
         "element.disabled": "#24293340",
-        "element.hover": "#3B4252CC",
+        "element.hover": "#3B425266",
         "element.selected": "#3B425280",
 
         "elevated_surface.background": "#242933FF",
@@ -307,7 +307,7 @@
         "error.background": "#242933",
         "error.border": "#C5727A",
 
-        "ghost_element.active": "#81A1C133",
+        "ghost_element.active": "#81A1C166",
         "ghost_element.background": "#242933",
         "ghost_element.disabled": "#24293340",
         "ghost_element.hover": "#3B425266",

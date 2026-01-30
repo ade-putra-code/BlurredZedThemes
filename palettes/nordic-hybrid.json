@@ -12,10 +12,15 @@
   "alpha": {
     "dark": {
       "active_line": "80",
-      "element_hover": "CC",
-      "ghost_active": "33"
+      "element_active": "66",
+      "element_hover": "66",
+      "element_selected": "80",
+      "ghost_active": "66",
+      "ghost_hover": "66",
+      "ghost_selected": "80"
     },
-    "light": {}
+    "light": {
+    }
   },
   "colors": null,
   "meta": {
@@ -27,6 +32,7 @@
   },
   "overrides": {
     "conflict.border": "#BF616A",
+
     "debugger.accent": "#BF616A"
   },
   "roles": {
@@ -100,6 +106,9 @@
         "color": "#88C0D0",
         "font_style": "italic"
       },
+      "namespace": {
+        "color": "#D8DEE9"
+      },
       "number": {
         "color": "#BE9DB8"
       },
@@ -111,9 +120,6 @@
       },
       "property": {
         "color": "#8FBCBB"
-      },
-      "namespace": {
-        "color": "#D8DEE9"
       },
       "punctuation": {
         "color": "#60728A"
@@ -137,12 +143,14 @@
       "variable": {
         "color": "#BBC3D4"
       },
+
       "constant.builtin": {
         "color": "#BE9DB8"
       },
       "constant.macro": {
         "color": "#B48EAD"
       },
+
       "diff.delta": {
         "color": "#81A1C1"
       },
@@ -152,6 +160,7 @@
       "diff.plus": {
         "color": "#A3BE8C"
       },
+
       "function.builtin": {
         "color": "#88C0D0"
       },
@@ -164,6 +173,7 @@
       "function.method.call": {
         "color": "#88C0D0"
       },
+
       "keyword.directive": {
         "color": "#BF616A"
       },
@@ -185,6 +195,7 @@
       "keyword.type": {
         "color": "#D08770"
       },
+
       "string.escape": {
         "color": "#BE9DB8"
       },
@@ -197,6 +208,7 @@
       "string.special.symbol": {
         "color": "#EBCB8B"
       },
+
       "tag.attribute": {
         "color": "#8FBCBB"
       },
@@ -206,9 +218,11 @@
       "tag.doctype": {
         "color": "#BF616A"
       },
+
       "text.literal": {
         "color": "#A3BE8C"
       },
+
       "type.builtin": {
         "color": "#EBCB8B"
       },
@@ -219,6 +233,7 @@
         "color": "#EBCB8B",
         "font_style": "italic"
       },
+
       "variable.builtin": {
         "color": "#BF616A"
       },

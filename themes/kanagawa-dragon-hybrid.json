@@ -420,22 +420,22 @@
         "editor.subheader.background": "#181616CC",
         "editor.wrap_guide": "#7A838244",
 
-        "element.active": "#625E5A26",
+        "element.active": "#625E5A66",
         "element.background": "#181616",
         "element.disabled": "#18161640",
-        "element.hover": "#625E5A33",
-        "element.selected": "#625E5A40",
+        "element.hover": "#625E5A66",
+        "element.selected": "#625E5A80",
 
         "elevated_surface.background": "#181616FF",
 
         "error.background": "#181616",
         "error.border": "#E82424",
 
-        "ghost_element.active": "#625E5A26",
+        "ghost_element.active": "#625E5A66",
         "ghost_element.background": "#181616",
         "ghost_element.disabled": "#18161640",
-        "ghost_element.hover": "#625E5A33",
-        "ghost_element.selected": "#625E5A40",
+        "ghost_element.hover": "#625E5A66",
+        "ghost_element.selected": "#625E5A80",
 
         "hidden.background": "#181616",
         "hidden.border": "#625E5A",

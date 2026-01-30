@@ -44,11 +44,11 @@
     "subheader": "D0",
     "surface": "CC",
     "tab_active": "EE",
+    "terminal_ansi_background": "FF",
+    "terminal_background": "FF",
     "ui": "E0",
     "ui_inactive": "CC",
-    "wrap_guide": "44",
-    "terminal_background": "FF",
-    "terminal_ansi_background": "FF"
+    "wrap_guide": "44"
   },
   "light": {
     "active_line": "80",
@@ -95,10 +95,10 @@
     "subheader": "F2",
     "surface": "C6",
     "tab_active": "EE",
+    "terminal_ansi_background": "FF",
+    "terminal_background": "FF",
     "ui": "C6",
     "ui_inactive": "C6",
-    "wrap_guide": "33",
-    "terminal_background": "FF",
-    "terminal_ansi_background": "FF"
+    "wrap_guide": "33"
   }
 }
