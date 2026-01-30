@@ -197,7 +197,6 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	mergeAny(style, p.Style)
 	applyRoleMappings(style, p)
-	applyBlurMode(style, p.Meta)
 
 	if p.Meta.BackgroundAppearance != "" {
 		style["background.appearance"] = p.Meta.BackgroundAppearance
@@ -223,6 +222,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 	applyDerivedPlayers(style, p, alpha)
 	applyDerivedSyntax(style, p)
 	mergeAny(style, p.Overrides)
+	applyBlurMode(style, p.Meta)
 
 	editorBg, _ := style["editor.background"].(string)
 	if editorBg != "" {
@@ -451,8 +451,8 @@ func blurOutputPath(outPath string) string {
 	if strings.HasSuffix(base, "-blur") {
 		return ""
 	}
-	if strings.HasSuffix(base, "-hybrid") {
-		base = strings.TrimSuffix(base, "-hybrid") + "-blur"
+	if before, ok := strings.CutSuffix(base, "-hybrid"); ok {
+		base = before + "-blur"
 	} else {
 		base = base + "-blur"
 	}

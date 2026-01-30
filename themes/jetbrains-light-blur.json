@@ -318,13 +318,13 @@
         "editor.active_line.background": "#F5F8FE80",
         "editor.active_line_number": "#767a8a",
         "editor.active_wrap_guide": "#40404088",
-        "editor.background": "#ffffff",
+        "editor.background": "#00000000",
         "editor.debugger_active_line.background": "#0133B31A",
         "editor.document_highlight.bracket_background": "#0033B317",
         "editor.document_highlight.read_background": "#edebfc",
         "editor.document_highlight.write_background": "#fce8f4",
         "editor.foreground": "#000000",
-        "editor.gutter.background": "#ffffff",
+        "editor.gutter.background": "#00000000",
         "editor.highlighted_line.background": "#ccccff",
         "editor.indent_guide": "#40404066",
         "editor.indent_guide_active": "#818594AA",
@@ -341,7 +341,7 @@
 
         "elevated_surface.background": "#F7F8FAFF",
 
-        "error.background": "#ffffff",
+        "error.background": "#00000000",
         "error.border": "#ff0000",
 
         "ghost_element.active": "#DBDCDEFE",
@@ -350,10 +350,10 @@
         "ghost_element.hover": "#EDEDEDF2",
         "ghost_element.selected": "#DBDCDEF8",
 
-        "hidden.background": "#ffffff",
+        "hidden.background": "#00000000",
         "hidden.border": "#808080",
 
-        "hint.background": "#ffffff",
+        "hint.background": "#00000000",
         "hint.border": "#7a7a7a",
 
         "icon.accent": "#3573f0",
@@ -388,7 +388,7 @@
         "panel.indent_guide_hover": "#3573f0",
         "panel.overlay_background": "#F7F8FACC",
 
-        "predictive.background": "#ffffff",
+        "predictive.background": "#00000000",
         "predictive.border": "#727476",
 
         "renamed.background": "#0033B326",
