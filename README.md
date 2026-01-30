@@ -10,7 +10,6 @@
 <p align="center">
   <img alt="Themes" src="https://img.shields.io/badge/themes-17-4C9AFF?style=flat-square" />
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/SergoGansta777/BlurredZedThemes?style=flat-square" />
-  <img alt="License" src="https://img.shields.io/github/license/SergoGansta777/BlurredZedThemes?style=flat-square" />
   <img alt="Status" src="https://img.shields.io/badge/status-maintained-30D158?style=flat-square" />
 </p>
 
