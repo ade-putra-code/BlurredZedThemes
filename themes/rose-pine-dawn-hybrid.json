@@ -194,7 +194,7 @@
             "font_weight": null
           },
           "preproc": {
-            "color": "#b4637a",
+            "color": "#ea9d34",
             "font_style": null,
             "font_weight": null
           },
@@ -234,7 +234,7 @@
             "font_weight": null
           },
           "title": {
-            "color": "#575279",
+            "color": "#b4637a",
             "font_style": null,
             "font_weight": 800
           },
@@ -249,7 +249,7 @@
             "font_weight": null
           },
           "variant": {
-            "color": "#b4637a",
+            "color": "#d7827e",
             "font_style": null,
             "font_weight": null
           },
@@ -484,7 +484,7 @@
             "font_weight": null
           },
           "string.escape": {
-            "color": "#b4637a",
+            "color": "#ea9d34",
             "font_style": null,
             "font_weight": null
           },
