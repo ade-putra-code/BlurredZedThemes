@@ -29,6 +29,7 @@ type Meta struct {
 	Appearance           string `json:"appearance"`
 	ThemeName            string `json:"theme_name"`
 	BackgroundAppearance string `json:"background_appearance"`
+	BlurMode             string `json:"blur_mode"`
 }
 
 type AlphaConfig = themeutil.AlphaConfig
@@ -103,13 +104,19 @@ func defaultPalettePath(themePath string) string {
 }
 
 func buildPalette(theme map[string]any, style map[string]any) Palette {
+	backgroundAppearance := stringValue(style, "background.appearance")
+	blurMode := ""
+	if strings.EqualFold(backgroundAppearance, "blurred") && isTransparentColor(stringValue(style, "editor.background")) {
+		blurMode = "flat"
+	}
 	return Palette{
 		Meta: Meta{
 			Name:                 stringField(theme, "name"),
 			Author:               stringField(theme, "author"),
 			Appearance:           themeString(theme, "appearance"),
 			ThemeName:            themeString(theme, "name"),
-			BackgroundAppearance: stringValue(style, "background.appearance"),
+			BackgroundAppearance: backgroundAppearance,
+			BlurMode:             blurMode,
 		},
 		Roles:    deriveRoles(style),
 		Semantic: deriveSemantic(style),
@@ -216,6 +223,17 @@ func stringValue(style map[string]any, key string) string {
 		return v
 	}
 	return ""
+}
+
+func isTransparentColor(value string) bool {
+	if value == "" {
+		return false
+	}
+	v := strings.TrimPrefix(strings.ToUpper(value), "#")
+	if len(v) == 8 && v[6:8] == "00" {
+		return true
+	}
+	return v == "00000000"
 }
 
 func stringSlice(style map[string]any, key string) []string {

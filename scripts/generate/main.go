@@ -22,6 +22,10 @@ const (
 	wipSuffix        = " (WIP)"
 )
 
+const (
+	blurModeFlat = "flat"
+)
+
 type Palette struct {
 	Meta      Meta              `json:"meta"`
 	Roles     map[string]string `json:"roles"`
@@ -40,6 +44,7 @@ type Meta struct {
 	Appearance           string `json:"appearance"`
 	ThemeName            string `json:"theme_name"`
 	BackgroundAppearance string `json:"background_appearance"`
+	BlurMode             string `json:"blur_mode"`
 }
 
 type AlphaConfig = themeutil.AlphaConfig
@@ -96,6 +101,22 @@ func run() error {
 
 	if err := writeJSON(outPath, theme); err != nil {
 		return fmt.Errorf("write theme: %w", err)
+	}
+
+	if shouldGenerateBlurVariant(palette.Meta) {
+		blurPalette := palette
+		blurPalette.Meta = blurVariantMeta(palette.Meta)
+		blurStyle := buildStyle(template, blurPalette, alphaCfg, cfg.PruneStyle)
+		if !cfg.KeepTODOs {
+			removeTODOs(blurStyle)
+		}
+		blurTheme := buildTheme(blurPalette, blurStyle, cfg.WIP)
+		blurOut := blurOutputPath(outPath)
+		if blurOut != "" {
+			if err := writeJSON(blurOut, blurTheme); err != nil {
+				return fmt.Errorf("write blur theme: %w", err)
+			}
+		}
 	}
 	return nil
 }
@@ -176,6 +197,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	mergeAny(style, p.Style)
 	applyRoleMappings(style, p)
+	applyBlurMode(style, p.Meta)
 
 	if p.Meta.BackgroundAppearance != "" {
 		style["background.appearance"] = p.Meta.BackgroundAppearance
@@ -293,6 +315,14 @@ func mergeAny(dst map[string]any, src map[string]any) {
 	maps.Copy(dst, src)
 }
 
+func applyBlurMode(style map[string]any, meta Meta) {
+	if !strings.EqualFold(meta.BlurMode, blurModeFlat) {
+		return
+	}
+	style["editor.background"] = transparentColor
+	style["editor.gutter.background"] = transparentColor
+}
+
 func removeTODOs(style map[string]any) {
 	for k, v := range style {
 		if isTodoValue(v) {
@@ -357,6 +387,79 @@ func withWIPSuffix(name string) string {
 		return name
 	}
 	return name + wipSuffix
+}
+
+func shouldGenerateBlurVariant(meta Meta) bool {
+	if !strings.EqualFold(meta.BackgroundAppearance, "blurred") {
+		return false
+	}
+	return !strings.EqualFold(meta.BlurMode, blurModeFlat)
+}
+
+func blurVariantMeta(meta Meta) Meta {
+	out := meta
+	out.BlurMode = blurModeFlat
+	out.Name = blurName(meta.Name)
+	out.ThemeName = blurThemeName(meta.ThemeName)
+	return out
+}
+
+func blurName(name string) string {
+	if name == "" {
+		return name
+	}
+	if strings.Contains(name, "(Blur)") {
+		return name
+	}
+	if strings.Contains(name, "(Hybrid)") {
+		return strings.ReplaceAll(name, "(Hybrid)", "(Blur)")
+	}
+	if strings.Contains(name, "Hybrid") {
+		return strings.ReplaceAll(name, "Hybrid", "Blur")
+	}
+	return name + " Blur"
+}
+
+func blurThemeName(name string) string {
+	if name == "" {
+		return name
+	}
+	if strings.Contains(name, "(Blur)") {
+		return name
+	}
+	if strings.Contains(name, "(Hybrid)") {
+		return strings.ReplaceAll(name, "(Hybrid)", "(Blur)")
+	}
+	if strings.Contains(name, "Hybrid") {
+		return strings.ReplaceAll(name, "Hybrid", "Blur")
+	}
+	return name + " (Blur)"
+}
+
+func blurOutputPath(outPath string) string {
+	if outPath == "" {
+		return ""
+	}
+	dir := filepath.Dir(outPath)
+	base := strings.TrimSuffix(filepath.Base(outPath), filepath.Ext(outPath))
+	wip := false
+	if strings.HasSuffix(base, ".wip") {
+		wip = true
+		base = strings.TrimSuffix(base, ".wip")
+	}
+	ext := filepath.Ext(outPath)
+	if strings.HasSuffix(base, "-blur") {
+		return ""
+	}
+	if strings.HasSuffix(base, "-hybrid") {
+		base = strings.TrimSuffix(base, "-hybrid") + "-blur"
+	} else {
+		base = base + "-blur"
+	}
+	if wip {
+		base = base + ".wip"
+	}
+	return filepath.Join(dir, base+ext)
 }
 
 func compareAndMaybeUpdatePalette(cfg Config, palette Palette, template map[string]any, alphaCfg AlphaConfig, generated map[string]any) error {
