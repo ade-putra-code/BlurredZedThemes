@@ -32,32 +32,6 @@ cp themes/*.json ~/.config/zed/themes/
 
 Then restart Zed (or reload themes) and select a theme in Settings → Theme.
 
-## Requirements
-
-- These themes rely on Zed’s `"background.appearance": "blurred"` setting.
-- Designed primarily for macOS, but should work on other platforms that support blur.
-
-## Recommended settings
-
-These settings match the screenshots and keep the layout clean:
-
-```json
-{
-  "current_line_highlight": "none", // By your preference
-  "project_panel": {
-    "sticky_scroll": false // Not fully supported yet
-  },
-  "sticky_scroll": {
-    "enabled": true // By your preference
-  }
-}
-```
-
-## Naming
-
-- Blur: stronger blur and softer UI surfaces.
-- Hybrid: crisper panels with clearer separation while keeping blur in the UI layers.
-
 ## Theme gallery
 
 Grouped by theme family. Previews are added as they become available.
@@ -98,6 +72,22 @@ Notes:
 - `overrides` are treated as derived data and can be regenerated from a reference theme.
 - The generator fills missing fields with `TODO` placeholders and applies safe defaults.
 - Published/reference themes live in `themes/`.
+
+## Recommended settings
+
+These settings match the screenshots and keep the layout clean. Themes are designed primarily for macOS but should work on other platforms that support blur.
+
+```json
+{
+  "current_line_highlight": "none", // By your preference
+  "project_panel": {
+    "sticky_scroll": false // Not fully supported yet
+  },
+  "sticky_scroll": {
+    "enabled": true // By your preference
+  }
+}
+```
 
 ## Contributing
 
