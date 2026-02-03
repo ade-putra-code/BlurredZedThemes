@@ -1,7 +1,7 @@
 authors = ["Sergey Nechoroshev <sergo777ser777@gmail.com>"]
-description = "A curated collection of blurred/hybrid themes for the Zed editor, tuned for modern UI surfaces, clean contrast, and consistent syntax colors."
-id = "blurred-zed-themes"
-name = "Blurred Zed Themes"
+description = "A curated collection of blurred hybrid themes for Zed, bringing beloved Neovim palettes and carefully tuning Zed’s  themes for modern, glassy UI surfaces with clean contrast and consistent syntax colors."
+id = "blurred-hybrid-collection"
+name = "Blurred Hybrid Collection"
 repository = "https://github.com/SergoGansta777/BlurredZedThemes"
 schema_version = 1
 version = "0.1.0"
