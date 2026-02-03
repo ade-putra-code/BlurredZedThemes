@@ -222,9 +222,14 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 	applyDerivedPlayers(style, p, alpha)
 	applyDerivedSyntax(style, p)
 	mergeAny(style, p.Overrides)
+	baseEditorBg, _ := style["editor.background"].(string)
 	applyBlurMode(style, p.Meta)
 
 	editorBg, _ := style["editor.background"].(string)
+	opaqueSemanticBg := ""
+	if strings.EqualFold(p.Meta.BlurMode, blurModeFlat) && baseEditorBg != "" {
+		opaqueSemanticBg = baseEditorBg
+	}
 	if editorBg != "" {
 		if _, ok := style["editor.gutter.background"]; !ok {
 			style["editor.gutter.background"] = editorBg
@@ -236,7 +241,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 				style["tab.active_background"] = editorBg
 			}
 		}
-		setSemanticBackgrounds(style, p, alpha, editorBg)
+		setSemanticBackgrounds(style, p, alpha, editorBg, opaqueSemanticBg)
 	}
 
 	if text, ok := style["text"].(string); ok && text != "" {
@@ -651,32 +656,37 @@ func applyRoleMappings(style map[string]any, p Palette) {
 	}
 }
 
-func setSemanticBackgrounds(style map[string]any, p Palette, alpha AlphaConfig, editorBg string) {
+func setSemanticBackgrounds(style map[string]any, p Palette, alpha AlphaConfig, editorBg string, opaqueEditorBg string) {
 	if editorBg == "" {
 		return
 	}
 
 	type rule struct {
-		key   string
-		alpha string
+		key        string
+		alpha      string
+		forceSolid bool
 	}
 	semanticAlpha, _ := alphaValue(p.Meta.Appearance, alpha, "semantic_bg")
 	rules := []rule{
-		{"warning", semanticAlpha},
-		{"info", semanticAlpha},
-		{"success", semanticAlpha},
-		{"unreachable", semanticAlpha},
-		{"conflict", "26"},
-		{"created", "26"},
-		{"deleted", "26"},
-		{"modified", "26"},
-		{"renamed", "26"},
-		{"ignored", "26"},
+		{"warning", semanticAlpha, true},
+		{"info", semanticAlpha, true},
+		{"success", semanticAlpha, true},
+		{"unreachable", semanticAlpha, true},
+		{"conflict", "26", false},
+		{"created", "26", false},
+		{"deleted", "26", false},
+		{"modified", "26", false},
+		{"renamed", "26", false},
+		{"ignored", "26", false},
 	}
 
 	for _, r := range rules {
 		bgKey := r.key + ".background"
 		if hasValue(style, bgKey) {
+			continue
+		}
+		if r.forceSolid && opaqueEditorBg != "" {
+			style[bgKey] = opaqueEditorBg
 			continue
 		}
 		if fg, ok := style[r.key].(string); ok && fg != "" {
@@ -686,6 +696,10 @@ func setSemanticBackgrounds(style map[string]any, p Palette, alpha AlphaConfig, 
 		style[bgKey] = editorBg
 	}
 
+	fallbackBg := editorBg
+	if opaqueEditorBg != "" {
+		fallbackBg = opaqueEditorBg
+	}
 	editorFallback := []string{
 		"error",
 		"hidden",
@@ -697,7 +711,7 @@ func setSemanticBackgrounds(style map[string]any, p Palette, alpha AlphaConfig, 
 		if hasValue(style, bgKey) {
 			continue
 		}
-		style[bgKey] = editorBg
+		style[bgKey] = fallbackBg
 	}
 }
 

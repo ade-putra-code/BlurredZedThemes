@@ -451,7 +451,7 @@
         "ghost_element.hover": "#2A2A3766",
         "ghost_element.selected": "#36364680",
 
-        "hidden.background": "#00000000",
+        "hidden.background": "#1F1F28",
         "hidden.border": "#54546D",
 
         "hint.background": "#282A31",
@@ -489,7 +489,7 @@
         "panel.indent_guide_hover": "#658594",
         "panel.overlay_background": "#1F1F28F0",
 
-        "predictive.background": "#00000000",
+        "predictive.background": "#1F1F28",
         "predictive.border": "#9E9B93",
 
         "renamed.background": "#A292A326",
@@ -561,7 +561,7 @@
 
         "toolbar.background": "#00000000",
 
-        "unreachable.background": "#C4746E1F",
+        "unreachable.background": "#1F1F28",
         "unreachable.border": "#C4746E",
 
         "version_control.added": "#699469",
