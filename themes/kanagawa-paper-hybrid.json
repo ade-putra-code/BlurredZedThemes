@@ -561,7 +561,7 @@
 
         "toolbar.background": "#00000000",
 
-        "unreachable.background": "#C4746E1F",
+        "unreachable.background": "#1F1F28",
         "unreachable.border": "#C4746E",
 
         "version_control.added": "#699469",

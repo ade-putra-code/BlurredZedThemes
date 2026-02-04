@@ -227,7 +227,7 @@ func buildStyle(template map[string]any, p Palette, alpha AlphaConfig, prune boo
 
 	editorBg, _ := style["editor.background"].(string)
 	opaqueSemanticBg := ""
-	if strings.EqualFold(p.Meta.BlurMode, blurModeFlat) && baseEditorBg != "" {
+	if strings.EqualFold(p.Meta.BackgroundAppearance, "blurred") && baseEditorBg != "" {
 		opaqueSemanticBg = baseEditorBg
 	}
 	if editorBg != "" {

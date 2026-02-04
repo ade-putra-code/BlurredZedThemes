@@ -317,7 +317,7 @@
         "ignored.background": "#5C677326",
         "ignored.border": "#5C6773",
 
-        "info.background": "#5CCFE61F",
+        "info.background": "#1F2430",
         "info.border": "#5CCFE6",
 
         "link_text.hover": "#5CCFE6",
@@ -360,7 +360,7 @@
         "status_bar.background": "#1F2430E0",
         "status_bar.foreground": "#CBCCC6",
 
-        "success.background": "#BAE67E1F",
+        "success.background": "#1F2430",
         "success.border": "#BAE67E",
 
         "surface.background": "#1F2430CC",
@@ -413,7 +413,7 @@
 
         "toolbar.background": "#00000000",
 
-        "unreachable.background": "#F287791F",
+        "unreachable.background": "#1F2430",
         "unreachable.border": "#F28779",
 
         "version_control.added": "#BAE67E",
@@ -443,7 +443,7 @@
         "vim.visual_line.background": "#D4BFFF",
         "vim.visual_line.foreground": "#1F2430",
 
-        "warning.background": "#FFD1731F",
+        "warning.background": "#1F2430",
         "warning.border": "#FFD173"
       }
     }
